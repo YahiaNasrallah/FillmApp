@@ -113,7 +113,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(@NonNull SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE  Filme_Table ( name TEXT , id TEXT , hour TEXT , type TEXT , language TEXT , createdate TEXT , casting TEXT , caption TEXT , date1 TEXT ," +
+        db.execSQL("CREATE TABLE  Filme_Table ( name TEXT unique primary key , id TEXT , hour TEXT , type TEXT , language TEXT , createdate TEXT , casting TEXT , caption TEXT , date1 TEXT ," +
                 "date2 TEXT ,date3 TEXT ,date4 TEXT,date5 TEXT,time1 TEXT,time2 TEXT,time3 TEXT,price TEXT,actor1 TEXT,actor2 TEXT,actor3 TEXT,actor4 TEXT,actor5 TEXT,photo BLOB," +
                 "actor1photo BLOB,actor2photo BLOB,actor3photo BLOB,actor4photo BLOB,actor5photo BLOB,banner BLOB ) ");
 
@@ -122,7 +122,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
 
 
-        db.execSQL("CREATE TABLE  User_Table ( username TEXT , userpassword TEXT , userphone TEXT , userphoto BLOB ) ");
+        db.execSQL("CREATE TABLE  User_Table ( username TEXT unique primary key, userpassword TEXT , userphone TEXT , userphoto BLOB ) ");
 
 
         db.execSQL("CREATE TABLE  User_Temp ( usernametemp TEXT , idtemp TEXT ) ");
@@ -484,6 +484,46 @@ public class MyDataBase extends SQLiteOpenHelper {
 
 
 
+    @SuppressLint("Range")
+    public ArrayList<Booked> getBookedByAccount(String account) {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Booked> bookList = new ArrayList<>();
+
+        String[] condition = {account + ""};
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("Select * from " + TABLE_BOOK + " where " + COLUMN_BOOK_ACCOUNT + " =? ", condition);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                Booked booked = new Booked();
+
+                booked.setFilm_Name(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_NAME)));
+                booked.setFilm_ID(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_ID)));
+                booked.setFilm_Type(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_TYPE)));
+                booked.setFilm_Cast(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_CAST)));
+                booked.setFilm_Time(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_TIME)));
+                booked.setFilm_Date(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_DATE)));
+                booked.setReserved_Chair1(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_CHAIR1)));
+                booked.setReserved_Chair2(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_CHAIR2)));
+                booked.setAccount_Name(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_ACCOUNT)));
+                booked.setTotal_Balance(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_TOTAL)));
+                booked.setNumber_Chairs(cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_NUMCHAIRS)));
+
+                booked.setFilm_Photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_BOOK_PHOTO))));
+
+
+                bookList.add(booked);
+                cursor.moveToNext();
+
+            }
+        }
+
+        cursor.close();
+        return bookList;
+    }
+
+
+
 
     //---------------------USER------------------------
 
@@ -517,7 +557,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         User user = new User();
 
         String[] condition = {username + ""};
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("Select * from " + TABLE_USER + " where " + COLUMN_FILM_NAME + " =? ", condition);
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("Select * from " + TABLE_USER + " where " + COLUMN_USER_NAME + " =? ", condition);
 
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {

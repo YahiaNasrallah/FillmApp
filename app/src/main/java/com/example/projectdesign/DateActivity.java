@@ -339,7 +339,7 @@ public class DateActivity extends AppCompatActivity {
                         String date=Date;
                         String chair1=booked1;
                         String chair2=booked2;
-                        String account="GG";
+                        String account=myDataBase.getTemp();
                         String total=String.valueOf(Integer.parseInt(myDataBase.getFilmByName(idName).getFilmPrice())*num);
                         String numChairs=String.valueOf(num);
 

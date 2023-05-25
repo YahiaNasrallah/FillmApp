@@ -42,7 +42,7 @@ public class BlankFragment2 extends Fragment {
 
 
 
-        adabter = new BookedAdapter(getContext(), myDataBase.getAllBooked(), new BookedAdapter.ClickHandle() {
+        adabter = new BookedAdapter(getContext(), myDataBase.getBookedByAccount(myDataBase.getTemp()), new BookedAdapter.ClickHandle() {
             @Override
             public void onItemClick(int position) {
 

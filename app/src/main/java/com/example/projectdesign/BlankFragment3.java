@@ -1,5 +1,6 @@
 package com.example.projectdesign;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,18 @@ public class BlankFragment3 extends Fragment {
         binding=FragmentBlank3Binding.inflate(inflater,container,false);
 
 
+        MyDataBase myDataBase=new MyDataBase(getContext());
+
+        binding.imageUser.setImageBitmap(myDataBase.getUserByName(myDataBase.getTemp()).getPhoto());
+        binding.tvNameUser.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserName());
+
+        binding.editProfileUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),ShowProfile.class);
+                startActivity(intent);
+            }
+        });
 
 
 
