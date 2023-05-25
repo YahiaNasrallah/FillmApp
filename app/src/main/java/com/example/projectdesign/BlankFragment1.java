@@ -25,7 +25,7 @@ public class BlankFragment1 extends Fragment {
 
     Intent intent;
 
-    FilmAdapter adabter;
+    FilmAdapter2 adabter;
 
     String type;
 
@@ -49,7 +49,7 @@ public class BlankFragment1 extends Fragment {
         MyDataBase myDataBase=new MyDataBase(getContext());
 
 
-        adabter = new FilmAdapter(getContext(), myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
+        adabter = new FilmAdapter2(getContext(), myDataBase.getAllFilms2(), new FilmAdapter2.ClickHandle() {
 
 
             @Override
@@ -90,6 +90,8 @@ public class BlankFragment1 extends Fragment {
 
                 type="Action";
 
+                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.color));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.Wihte));
@@ -113,7 +115,7 @@ public class BlankFragment1 extends Fragment {
 
 
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getFilmByType(type), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -126,7 +128,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
@@ -169,7 +171,7 @@ public class BlankFragment1 extends Fragment {
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getAllFilms2(), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -182,7 +184,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
@@ -224,7 +226,7 @@ public class BlankFragment1 extends Fragment {
 
 
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getFilmByType(type), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -237,7 +239,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
@@ -278,7 +280,7 @@ public class BlankFragment1 extends Fragment {
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getFilmByType(type), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -291,7 +293,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
@@ -335,7 +337,7 @@ public class BlankFragment1 extends Fragment {
 
 
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getFilmByType(type), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -348,7 +350,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
@@ -389,7 +391,7 @@ public class BlankFragment1 extends Fragment {
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getFilmByType(type), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -402,7 +404,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
@@ -444,7 +446,7 @@ public class BlankFragment1 extends Fragment {
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.Wihte));
 
 
-                adabter = new FilmAdapter(getContext(), myDataBase.getFilmByType(type), new FilmAdapter.ClickHandle() {
+                adabter = new FilmAdapter2(getContext(), myDataBase.getFilmByType(type), new FilmAdapter2.ClickHandle() {
 
 
                     @Override
@@ -457,7 +459,7 @@ public class BlankFragment1 extends Fragment {
 
                 });
                 binding.recycleitemfilm.setAdapter(adabter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
                 binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
