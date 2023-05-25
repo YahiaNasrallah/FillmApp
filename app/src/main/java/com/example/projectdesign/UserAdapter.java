@@ -2,11 +2,6 @@ package com.example.projectdesign;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,28 +9,26 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.projectdesign.databinding.RecycleFilmItemBinding;
+import com.example.projectdesign.databinding.RecycleUserItemBinding;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
-public class FilmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private ArrayList<Filme> filmlist;
+    private ArrayList<User> userList;
 
-    
-    //استدعاء الinterface 
+
+    //استدعاء الinterface
     private ClickHandle clickHandle;
 
-    RecycleFilmItemBinding binding;
+    RecycleUserItemBinding binding;
 
 
-    public FilmAdapter(Context context, ArrayList<Filme> gamelist, ClickHandle clickHandle) {
+    public UserAdapter(Context context, ArrayList<User> userList, ClickHandle clickHandle) {
         this.context = context;
-        this.filmlist = gamelist;
+        this.userList = userList;
         this.clickHandle=clickHandle;
     }
 
@@ -44,7 +37,7 @@ public class FilmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding=RecycleFilmItemBinding.inflate(LayoutInflater.from(context),parent,false);
+        binding=RecycleUserItemBinding.inflate(LayoutInflater.from(context),parent,false);
             return new MyviewHolder(binding);
     }
 
@@ -54,13 +47,10 @@ public class FilmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         MyviewHolder myviewHolder= (MyviewHolder) holder;
 
-        myviewHolder.binding.tvFilmnameItem.setText(filmlist.get(position).getFilmName());
-        myviewHolder.binding.tvFilmIdItem.setText(filmlist.get(position).getFilmID());
-        myviewHolder.binding.tvFilmCastingItem.setText(filmlist.get(position).getFilmCast());
-        myviewHolder.binding.tvFilmHouersItem.setText(filmlist.get(position).getFilmHoure());
-        myviewHolder.binding.tvTypeItem.setText(filmlist.get(position).getFilmType());
-        myviewHolder.binding.tvLangugeItem.setText(filmlist.get(position).getFilmLanguge());
-        myviewHolder.binding.imageViewItem.setImageBitmap(filmlist.get(position).getFilm_Photo());
+        myviewHolder.binding.tvNameUserItem.setText(userList.get(position).getUserName());
+        myviewHolder.binding.tvPasswordUserItem.setText(userList.get(position).getUserPassword());
+        myviewHolder.binding.tvPhoneUserItem.setText(userList.get(position).getUserPhone());
+        myviewHolder.binding.imageUserItem.setImageBitmap(userList.get(position).getPhoto());
 
         myviewHolder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,15 +70,15 @@ public class FilmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return filmlist.size();
+        return userList.size();
     }
 
 
     //ربط التصميم
     public class MyviewHolder extends RecyclerView.ViewHolder{
 
-        RecycleFilmItemBinding binding;
-        public MyviewHolder(RecycleFilmItemBinding binding) {
+        RecycleUserItemBinding binding;
+        public MyviewHolder(RecycleUserItemBinding binding) {
             super(binding.getRoot());
             this.binding=binding;
         }
