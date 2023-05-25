@@ -295,8 +295,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
         binding.tvSeeAll.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getContext(),SeeAllActivity.class);
-                    startActivity(intent);
+
                     Intent intent1=new Intent(getContext(),SeeAllActivity.class);
                     intent1.putExtra("type","All");
                     startActivity(intent1);

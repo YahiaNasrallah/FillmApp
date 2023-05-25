@@ -136,7 +136,7 @@ public class SeeAllActivity extends AppCompatActivity {
             binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
 
         }else if (condetion.equals("Horror")) {
-            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Horror"), new FilmAdapter.ClickHandle() {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Adventure"), new FilmAdapter.ClickHandle() {
 
 
                 @Override

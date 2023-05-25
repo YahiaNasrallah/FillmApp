@@ -113,7 +113,6 @@ public class MyDataBase extends SQLiteOpenHelper {
                 "actor1photo BLOB,actor2photo BLOB,actor3photo BLOB,actor4photo BLOB,actor5photo BLOB,banner BLOB ) ");
 
 
-
         db.execSQL("CREATE TABLE  Book_Table ( photobook BLOB , namebook TEXT , idbook TEXT , typebook TEXT , castbook TEXT , timebook TEXT ,datebook TEXT , chair1book TEXT , chair2book TEXT , accountbook TEXT , totalbook TEXT , numchairsbook TEXT ) ");
 
 
