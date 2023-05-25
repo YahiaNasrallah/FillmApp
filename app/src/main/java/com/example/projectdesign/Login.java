@@ -46,16 +46,32 @@ public class Login extends AppCompatActivity {
 
 
                 }else {
+
+
                     if (myDataBase.CheckUser(binding.edUsernamelogin.getText().toString(),binding.edUserpasswordloign.getText().toString())) {
+
+                        if (myDataBase.getTemp().equals("")){
+                            myDataBase.AddTemp(binding.edUsernamelogin.getText().toString());
+                        }else{
+                            myDataBase.UpdateTemp(binding.edUsernamelogin.getText().toString());
+                        }
+
                         Toast.makeText(Login.this, "Found", Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(Login.this,MainActivity.class);
                         binding.edUsernamelogin.getText().clear();
                         binding.edUserpasswordloign.getText().clear();
                         startActivity(intent);
+
+
+
                     }else {
+
                         Toast.makeText(Login.this, "Not Found", Toast.LENGTH_SHORT).show();
 
                     }
+
+
+
                 }
 
 

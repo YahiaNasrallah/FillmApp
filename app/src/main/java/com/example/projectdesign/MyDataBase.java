@@ -97,10 +97,15 @@ public class MyDataBase extends SQLiteOpenHelper {
     private static final String TABLE_USER = "User_Table";
 
 
+    //---------------------------------------------------------
+
+    private static final String COLUMN_TEMP_NAME = "usernametemp";
+    private static final String COLUMN_TEMP_ID = "idtemp";
+    private static final String TABLE_TEMP = "User_Temp";
 
 
     public MyDataBase(Context context){
-        super(context,DATABASE_NAME,null,119);
+        super(context,DATABASE_NAME,null,120);
 
     }
 
@@ -120,6 +125,9 @@ public class MyDataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE  User_Table ( username TEXT , userpassword TEXT , userphone TEXT , userphoto BLOB ) ");
 
 
+        db.execSQL("CREATE TABLE  User_Temp ( usernametemp TEXT , idtemp TEXT ) ");
+
+
 
 
     }
@@ -129,6 +137,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FILMS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BOOK);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEMP);
         onCreate(db);
     }
 
@@ -592,11 +601,62 @@ public class MyDataBase extends SQLiteOpenHelper {
     }
 
 
+    //-----------------------TEMP--------------------------------
+
+    public boolean AddTemp(String name){
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_TEMP_NAME,name);
+        values.put(COLUMN_TEMP_ID,"1");
+
+        long tempId = db.insert(TABLE_TEMP, null, values);
+
+        db.close();
+        return tempId!=0;
+
+
+    }
+
+
+    @SuppressLint("Range")
+    public String getTemp() {
+        SQLiteDatabase db = getReadableDatabase();
+        String name="";
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("Select * from " + TABLE_TEMP,null);
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+                name=cursor.getString(cursor.getColumnIndex(COLUMN_TEMP_NAME));
+
+                cursor.moveToNext();
+
+            }
+        }
 
 
 
+        return name ;
 
 
+    }
+
+
+
+    public boolean UpdateTemp(String temp) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TEMP_NAME,temp);
+        String[] array = { 1+""};
+        long result = sqLiteDatabase.update(TABLE_TEMP,values,
+                " " +COLUMN_TEMP_ID + "=? ",array);
+
+        return result>0;
+
+}
 
 
 
