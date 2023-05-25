@@ -550,7 +550,6 @@ public class MyDataBase extends SQLiteOpenHelper {
     }
 
 
-
     @SuppressLint("Range")
     public User getUserByName(String username) {
         SQLiteDatabase db = getReadableDatabase();
@@ -639,6 +638,31 @@ public class MyDataBase extends SQLiteOpenHelper {
         cursor.close();
         return flag;
     }
+
+
+    public boolean UpdateUSer(User user) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USER_NAME,user.getUserName());
+        values.put(COLUMN_USER_PHONE,user.getUserPhone());
+        values.put(COLUMN_USER_PASSWORD,user.getUserPassword());
+        values.put(COLUMN_USER_PHOTO,getBytes(user.getPhoto()));
+
+        String[] array = { user.getUserName()+""};
+        long result = sqLiteDatabase.update(TABLE_USER,values,
+                " " +COLUMN_USER_NAME + "=? ",array);
+
+
+        return result>0;
+
+    }
+
+
+
+
+
+
 
 
     //-----------------------TEMP--------------------------------
