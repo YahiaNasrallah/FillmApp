@@ -62,7 +62,7 @@ public class BlankFragment1 extends Fragment {
 
         });
         binding.recycleitemfilm.setAdapter(adabter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
 
         binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
