@@ -80,37 +80,6 @@ MyDataBase myDataBase=new MyDataBase(getContext());
         binding.imagefilm5.setImageBitmap(myDataBase.getFilmByName("Yahia").getFilm_Photo());
 
 
-        binding.btnAll.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint({"ResourceAsColor", "UseCompatLoadingForColorStateLists"})
-            @Override
-            public void onClick(View v) {
-
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.color));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.Wihte));
-
-                binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAction.setTextColor(getResources().getColor(R.color.color));
-
-
-
-                binding.btnRomantic.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnRomantic.setTextColor(getResources().getColor(R.color.color));
-
-                binding.btnDrama.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnDrama.setTextColor(getResources().getColor(R.color.color));
-
-                binding.btnComedy.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnComedy.setTextColor(getResources().getColor(R.color.color));
-
-                binding.btnAdventure.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAdventure.setTextColor(getResources().getColor(R.color.color));
-
-                binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
-
-
-            }
-        });
 
         binding.btnAction.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForColorStateLists"})
@@ -118,8 +87,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
             public void onClick(View v) {
 
                 type="Action";
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
+
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.color));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.Wihte));
@@ -141,6 +109,10 @@ MyDataBase myDataBase=new MyDataBase(getContext());
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                intent1.putExtra("type",type);
+                startActivity(intent1);
+
 
 
 
@@ -153,8 +125,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
             public void onClick(View v) {
 
                 type="Romantic";
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
+
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.color));
@@ -176,7 +147,9 @@ MyDataBase myDataBase=new MyDataBase(getContext());
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
-
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                intent1.putExtra("type",type);
+                startActivity(intent1);
             }
         });
 
@@ -186,8 +159,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
             public void onClick(View v) {
 
                 type="Drama";
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
+
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.color));
@@ -208,7 +180,9 @@ MyDataBase myDataBase=new MyDataBase(getContext());
 
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
-
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                intent1.putExtra("type",type);
+                startActivity(intent1);
 
             }
         });
@@ -219,8 +193,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
             public void onClick(View v) {
 
                 type="Comedy";
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
+
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.color));
@@ -242,7 +215,9 @@ MyDataBase myDataBase=new MyDataBase(getContext());
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
-
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                intent1.putExtra("type",type);
+                startActivity(intent1);
             }
         });
 
@@ -252,8 +227,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
             public void onClick(View v) {
 
                 type="Adventure";
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
+
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.color));
@@ -275,7 +249,9 @@ MyDataBase myDataBase=new MyDataBase(getContext());
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.color));
 
-
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                intent1.putExtra("type",type);
+                startActivity(intent1);
             }
         });
 
@@ -285,8 +261,7 @@ MyDataBase myDataBase=new MyDataBase(getContext());
             public void onClick(View v) {
 
                 type="Horror";
-                binding.btnAll.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnAll.setTextColor(getResources().getColor(R.color.color));
+
 
                 binding.btnAction.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
                 binding.btnAction.setTextColor(getResources().getColor(R.color.color));
@@ -308,7 +283,9 @@ MyDataBase myDataBase=new MyDataBase(getContext());
                 binding.btnHorror.setBackgroundTintList(getResources().getColorStateList(R.color.color));
                 binding.btnHorror.setTextColor(getResources().getColor(R.color.Wihte));
 
-
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                intent1.putExtra("type",type);
+                startActivity(intent1);
             }
         });
 
@@ -320,6 +297,9 @@ MyDataBase myDataBase=new MyDataBase(getContext());
                 public void onClick(View v) {
                     Intent intent=new Intent(getContext(),SeeAllActivity.class);
                     startActivity(intent);
+                    Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                    intent1.putExtra("type","All");
+                    startActivity(intent1);
                 }
             });
 

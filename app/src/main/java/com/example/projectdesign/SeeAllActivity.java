@@ -24,37 +24,136 @@ public class SeeAllActivity extends AppCompatActivity {
 
 
         MyDataBase myDataBase=new MyDataBase(SeeAllActivity.this);
+        Intent intent=getIntent();
+        String condetion=intent.getStringExtra("type");
+
+        if (condetion.equals("All")){
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
 
 
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
 
 
-        adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+        } else if (condetion.equals("Action")) {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Action"), new FilmAdapter.ClickHandle() {
 
 
-            @Override
-            public void onItemClick(int position) {
-                Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
-                intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
-                startActivity(intent);
-            }
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
 
 
-        });
-        binding.recycleViewSeeAll.setAdapter(adabter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
 
-        binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
 
-
-
-
-
+        }else if (condetion.equals("Romantic")) {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Romantic"), new FilmAdapter.ClickHandle() {
 
 
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
 
 
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+        }else if (condetion.equals("Drama")) {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Drama"), new FilmAdapter.ClickHandle() {
 
 
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
+
+
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+        }else if (condetion.equals("Comedy")) {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Comedy"), new FilmAdapter.ClickHandle() {
+
+
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
+
+
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+        }else if (condetion.equals("Adventure")) {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Adventure"), new FilmAdapter.ClickHandle() {
+
+
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
+
+
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+        }else if (condetion.equals("Horror")) {
+            adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getFilmByType("Horror"), new FilmAdapter.ClickHandle() {
+
+
+                @Override
+                public void onItemClick(int position) {
+                    Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                    intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                    startActivity(intent);
+                }
+
+
+            });
+            binding.recycleViewSeeAll.setAdapter(adabter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+            binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+        }
 
 
     }

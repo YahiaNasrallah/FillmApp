@@ -247,61 +247,6 @@ public class MyDataBase extends SQLiteOpenHelper {
 
 
 
-    @SuppressLint("Range")
-    public ArrayList<Filme> getAllFilms() {
-        SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Filme> filmeList = new ArrayList<>();
-
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FILMS, null);
-
-
-        if (cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
-                Filme filme = new Filme();
-                filme.setFilmName(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_NAME)));
-                filme.setFilmID(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_ID)));
-                filme.setFilmHoure(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_HOUR)));
-                filme.setFilmCast(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_CAST)));
-                filme.setFilmType(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_TYPE)));
-                filme.setFilmLanguge(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_LANGUAGE)));
-                filme.setFilmCreateDate(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_CREATE_DATE)));
-                filme.setActor1_name(cursor.getString(cursor.getColumnIndex(COLUMN_ACTOR1_NAME)));
-                filme.setActor2_name(cursor.getString(cursor.getColumnIndex(COLUMN_ACTOR2_NAME)));
-                filme.setActor3_name(cursor.getString(cursor.getColumnIndex(COLUMN_ACTOR3_NAME)));
-                filme.setActor4_name(cursor.getString(cursor.getColumnIndex(COLUMN_ACTOR4_NAME)));
-                filme.setActor5_name(cursor.getString(cursor.getColumnIndex(COLUMN_ACTOR5_NAME)));
-                filme.setActor1_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR1_Photo))));
-                filme.setActor2_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR2_Photo))));
-                filme.setActor3_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR3_Photo))));
-                filme.setActor4_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR4_Photo))));
-                filme.setActor5_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR5_Photo))));
-                filme.setFilmCaption(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_CAPTION)));
-                filme.setDate1(cursor.getString(cursor.getColumnIndex(COLUMN_DATE1)));
-                filme.setDate1(cursor.getString(cursor.getColumnIndex(COLUMN_DATE2)));
-                filme.setDate3(cursor.getString(cursor.getColumnIndex(COLUMN_DATE3)));
-                filme.setDate4(cursor.getString(cursor.getColumnIndex(COLUMN_DATE4)));
-                filme.setDate5(cursor.getString(cursor.getColumnIndex(COLUMN_DATE5)));
-                filme.setTime1(cursor.getString(cursor.getColumnIndex(COLUMN_TIME1)));
-                filme.setTime2(cursor.getString(cursor.getColumnIndex(COLUMN_TIME2)));
-                filme.setTime3(cursor.getString(cursor.getColumnIndex(COLUMN_TIME3)));
-                filme.setFilmPrice(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_PRICE)));
-                filme.setFilm_Photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_FILM_PHOTO))));
-                filme.setFilm_Banner(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_FILM_Banner))));
-
-
-
-
-                filmeList.add(filme);
-                cursor.moveToNext();
-
-            }
-        }
-
-        cursor.close();
-        return filmeList;
-    }
-
-
 
     @SuppressLint("Range")
     public ArrayList<Filme> getAllFilms2() {
@@ -339,6 +284,37 @@ public class MyDataBase extends SQLiteOpenHelper {
         return filmeList;
     }
 
+    @SuppressLint("Range")
+    public ArrayList<Filme> getFilmByType(String type) {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Filme> filmeList = new ArrayList<>();
+
+        String[] condition = {type + ""};
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("Select * from " + TABLE_FILMS + " where " + COLUMN_FILM_TYPE + " =? ", condition);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                Filme filme = new Filme();
+
+                filme.setFilmName(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_NAME)));
+                filme.setFilmID(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_ID)));
+                filme.setFilmHoure(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_HOUR)));
+                filme.setFilmCast(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_CAST)));
+                filme.setFilmType(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_TYPE)));
+                filme.setFilmLanguge(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_LANGUAGE)));
+                filme.setFilm_Photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_FILM_PHOTO))));
+
+
+                filmeList.add(filme);
+                cursor.moveToNext();
+
+            }
+        }
+
+        cursor.close();
+        return filmeList;
+    }
 
 
 
