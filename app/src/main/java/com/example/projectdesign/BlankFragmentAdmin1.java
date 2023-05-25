@@ -48,8 +48,8 @@ public class BlankFragmentAdmin1 extends Fragment {
                 binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.color));
                 binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.Wihte));
 
-                binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.color));
+                binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+                binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.color));
 
                 adabter = new FilmAdapter(getContext(), myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
                     @Override
@@ -73,7 +73,11 @@ public class BlankFragmentAdmin1 extends Fragment {
         binding.btnRecycleUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.color));
+                binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.Wihte));
 
+                binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+                binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.color));
                 adabter2 = new UserAdapter(getContext(), myDataBase.getAllUser(), new UserAdapter.ClickHandle() {
                     @Override
                     public void onItemClick(int position) {

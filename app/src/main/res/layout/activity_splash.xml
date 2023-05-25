@@ -32,7 +32,7 @@
         android:layout_width="350dp"
         android:layout_gravity="center"
         android:layout_marginTop="120dp"
-        android:text="Sign in User"
+        android:text="Sign in"
         android:textSize="18sp"
         android:backgroundTint="@color/dark"
         app:strokeColor="@color/color"

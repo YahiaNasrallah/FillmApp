@@ -46,7 +46,7 @@ public class CreateAccount extends AppCompatActivity {
                 String password=binding.edUsernameCreate.getText().toString();
                 Bitmap i=image2;
 
-                user=new User(i,name,password,phone);
+                user=new User(image2,name,password,phone);
 
 
                     if (myDataBase.AddUser(user)){
@@ -79,6 +79,7 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onActivityResult(ActivityResult result) {
                 Intent intent =result.getData();
+                assert intent != null;
                 Uri img=intent.getData();
 
 

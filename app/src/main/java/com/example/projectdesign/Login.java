@@ -34,14 +34,30 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (myDataBase.CheckUser(binding.edUsernamelogin.getText().toString(),binding.edUserpasswordloign.getText().toString())) {
-                    Toast.makeText(Login.this, "Found", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(Login.this,MainActivity.class);
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(Login.this, "Not Found", Toast.LENGTH_SHORT).show();
 
+                if (binding.edUsernamelogin.getText().toString().equals("a")&&binding.edUserpasswordloign.getText().toString().equals("a")){
+
+
+                    binding.edUsernamelogin.getText().clear();
+                    binding.edUserpasswordloign.getText().clear();
+                    Intent intent=new Intent(Login.this,AdminMain.class);
+                    startActivity(intent);
+
+
+
+                }else {
+                    if (myDataBase.CheckUser(binding.edUsernamelogin.getText().toString(),binding.edUserpasswordloign.getText().toString())) {
+                        Toast.makeText(Login.this, "Found", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(Login.this,MainActivity.class);
+                        binding.edUsernamelogin.getText().clear();
+                        binding.edUserpasswordloign.getText().clear();
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(Login.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
+
 
 
 
