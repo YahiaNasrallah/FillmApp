@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<color name="Wihte">#ffff</color>
+<color name="color">#e76474</color>
+<color name="colorwite">#6BE76474</color>
+<color name="black">#000000</color>
+<color name="Gray">#D2D2D2</color>
+<color name="colormain">#6750A4</color>
+<color name="dark">#1b2531</color>
+<color name="dark2">#323b46</color>
+<color name="dark3">#464f58</color>
+<color name="darkwhite">#38485E</color>
+<color name="darkwhite2">#323b46</color>
+<color name="wite">#66FFFFFF</color>
+<color name="blue">#64B5F6</color>
+
+
+
+</resources>

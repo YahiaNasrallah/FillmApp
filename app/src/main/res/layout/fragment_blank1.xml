@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/dark"
+    tools:context=".BlankFragment1">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/go"
+        android:layout_width="wrap_content"
+        android:text="Location"
+        android:textSize="20sp"
+        android:textColor="@color/Wihte"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Bengaluru"
+                android:textStyle="bold"
+                android:textColor="@color/Wihte"
+                android:textSize="24sp"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/baseline_arrow_drop_down_24"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/baseline_search_24"
+                android:layout_height="30dp"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/baseline_notifications_none_24"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    <HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_marginTop="25dp"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="180dp">
+            <ImageView
+                android:id="@+id/imag1"
+                android:layout_width="280dp"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/thor"/>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="180dp">
+            <ImageView
+                android:id="@+id/imag2"
+                android:layout_width="280dp"
+                android:scaleType="centerCrop"
+                android:layout_height="180dp"
+                android:src="@drawable/blackadam"/>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="15dp">
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="180dp">
+            <ImageView
+                android:id="@+id/imag3"
+                android:layout_width="280dp"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/interstaller"/>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</HorizontalScrollView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Categories"
+        android:textSize="24sp"
+        android:textColor="@color/Wihte"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"/>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_all"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/color"
+                app:cornerRadius="20dp"
+                android:layout_margin="10dp"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                android:text="ALL"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_action"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/dark"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                android:textColor="@color/color"
+                android:layout_margin="10dp"
+                android:text="Action"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_romantic"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/dark"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                android:textColor="@color/color"
+                android:layout_margin="10dp"
+                android:text="Romantic"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_drama"
+                android:layout_width="wrap_content"
+                app:cornerRadius="20dp"
+                android:backgroundTint="@color/dark"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                android:textColor="@color/color"
+                android:layout_margin="10dp"
+                android:text="Drama"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_comedy"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/dark"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                android:textColor="@color/color"
+                android:layout_margin="10dp"
+                android:text="Comedy"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_adventure"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/dark"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                android:textColor="@color/color"
+                android:layout_margin="10dp"
+                android:text="Adventure"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_horror"
+                android:layout_width="wrap_content"
+                android:backgroundTint="@color/dark"
+                app:strokeColor="@color/color"
+                app:cornerRadius="20dp"
+                app:strokeWidth="2dp"
+                android:textColor="@color/color"
+                android:layout_margin="10dp"
+                android:text="Horror"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Releases New"
+        android:textSize="24sp"
+        android:textColor="@color/Wihte"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_seeAll"
+        android:layout_width="wrap_content"
+        android:text="See all"
+        android:textSize="18sp"
+        android:textColor="@color/color"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="150dp"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Film1"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_height="200dp">
+                <ImageView
+                    android:id="@+id/imagefilm1"
+                    android:layout_width="150dp"
+                    android:src="@drawable/joker"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"/>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:layout_height="200dp">
+                    <TextView
+                        android:id="@+id/tv_film1"
+                        android:layout_width="wrap_content"
+                        android:text="Joker"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#9E9E9E"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="(35K)"
+                            android:textColor="@color/Wihte"
+                            android:textSize="12sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Film2"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_height="200dp">
+                <ImageView
+                    android:id="@+id/imagefilm2"
+                    android:layout_width="150dp"
+                    android:src="@drawable/spider"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"/>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:layout_height="200dp">
+                    <TextView
+                        android:id="@+id/tvfilm2"
+                        android:layout_width="wrap_content"
+                        android:text="Spider Man"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#9E9E9E"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="(35K)"
+                            android:textColor="@color/Wihte"
+                            android:textSize="12sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Film3"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_height="200dp">
+                <ImageView
+                    android:id="@+id/imagefilm3"
+                    android:layout_width="150dp"
+                    android:src="@drawable/spider"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"/>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:layout_height="200dp">
+                    <TextView
+                        android:id="@+id/tvfilm3"
+                        android:layout_width="wrap_content"
+                        android:text="Spider Man"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#9E9E9E"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="(35K)"
+                            android:textColor="@color/Wihte"
+                            android:textSize="12sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Film4"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_height="200dp">
+                <ImageView
+                    android:id="@+id/imagefilm4"
+                    android:layout_width="150dp"
+                    android:src="@drawable/joker"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"/>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:layout_height="200dp">
+                    <TextView
+                        android:id="@+id/tvfilm4"
+                        android:layout_width="wrap_content"
+                        android:text="Joker"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#9E9E9E"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="(35K)"
+                            android:textColor="@color/Wihte"
+                            android:textSize="12sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Film5"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_height="200dp">
+                <ImageView
+                    android:id="@+id/imagefilm5"
+                    android:layout_width="150dp"
+                    android:src="@drawable/joker"
+                    android:scaleType="centerCrop"
+                    android:layout_height="200dp"/>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:layout_height="200dp">
+                    <TextView
+                        android:id="@+id/tvfilm5"
+                        android:layout_width="wrap_content"
+                        android:text="Joker"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#9E9E9E"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/baseline_star_fill"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="(35K)"
+                            android:textColor="@color/Wihte"
+                            android:textSize="12sp"
+                            android:layout_marginStart="20dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+
+
+
+</LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    android:orientation="vertical"
+    tools:context=".ViewTicketActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            app:cardCornerRadius="50dp"
+            android:layout_marginEnd="70dp"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/wite"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_arrow_back_ios_new_24"
+                android:layout_height="30dp"/>
+
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Movie Ticket"
+            android:textColor="@color/Wihte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_marginStart="70dp"
+            app:cardCornerRadius="50dp"
+            android:backgroundTint="@color/wite"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_share_24"
+                android:layout_height="30dp"/>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="550dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#ebebeb"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="50dp">
+<LinearLayout
+    android:layout_width="350dp"
+    android:layout_height="550dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="15dp"
+            android:layout_height="180dp">
+            <ImageView
+                android:layout_width="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/spider"
+                android:layout_height="180dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_filmName"
+                android:layout_width="wrap_content"
+                android:text="Spider Man"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tv_filmType"
+                android:layout_width="wrap_content"
+                android:text="Action, Thriller"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Tamil |2D"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="?android:attr/listDivider" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:src="@drawable/baseline_location_on_24"
+            android:layout_height="25dp"/>
+        <TextView
+            android:id="@+id/tv_filmCast"
+            android:layout_width="wrap_content"
+            android:text="MK cinemas"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:src="@drawable/baseline_access_time_24"
+            android:layout_height="25dp"/>
+        <TextView
+            android:id="@+id/tv_filmTime"
+            android:layout_width="wrap_content"
+            android:text="9:00 Am"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="East coast road,Chennai"
+        android:layout_marginStart="40dp"
+        android:textSize="12sp"
+        android:textColor="@color/dark"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:src="@drawable/baseline_date_range_24"
+            android:layout_height="25dp"/>
+        <TextView
+            android:id="@+id/tv_filmDate"
+            android:layout_width="wrap_content"
+            android:text="Wednesday, Jan 11"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:src="@drawable/baseline_chair_alt_24"
+            android:layout_height="25dp"/>
+        <TextView
+            android:id="@+id/tv_film_Chairs"
+            android:layout_width="wrap_content"
+            android:text="D3,D4,D5,D6"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text=" -  "
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_filmNum"
+            android:layout_width="wrap_content"
+            android:text="  4 "
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Seats"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="?android:attr/listDivider" />
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_marginStart="20dp"
+               android:layout_marginTop="20dp"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:layout_width="25dp"
+                   android:src="@drawable/baseline_person_24"
+                   android:layout_height="25dp"
+                   app:tint="@color/dark" />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:text="Name"
+                   android:textStyle="bold"
+                   android:textColor="@color/dark"
+                   android:layout_gravity="center"
+                   android:layout_height="wrap_content"/>
+
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_Account"
+                   android:layout_width="wrap_content"
+                   android:text="Kishore"
+                   android:layout_marginStart="40dp"
+                   android:textSize="12sp"
+                   android:textStyle="bold"
+                   android:textColor="@color/dark"
+                   android:layout_height="wrap_content"/>
+
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_marginStart="20dp"
+               android:layout_marginTop="20dp"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:layout_width="25dp"
+                   android:src="@drawable/baseline_money_24"
+                   android:layout_height="25dp"
+                   app:tint="@color/dark" />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:text="Total Amount"
+                   android:textColor="@color/dark"
+                   android:layout_gravity="center"
+                   android:layout_height="wrap_content"/>
+
+
+           </LinearLayout>
+
+
+           <TextView
+               android:id="@+id/tv_filmTotal"
+               android:layout_width="wrap_content"
+               android:text="760.00"
+               android:textStyle="bold"
+               android:textSize="12sp"
+               android:layout_marginStart="40dp"
+               android:textColor="@color/dark"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+
+       <ImageView
+           android:layout_width="150dp"
+           android:src="@drawable/img"
+           android:scaleType="centerCrop"
+           android:layout_marginStart="50dp"
+           android:layout_height="150dp"/>
+
+
+
+   </LinearLayout>
+
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="350dp"
+        android:text="Download Tikcet"
+        app:cornerRadius="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"/>
+
+
+</LinearLayout>
