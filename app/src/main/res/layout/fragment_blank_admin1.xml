@@ -7,8 +7,40 @@
     android:orientation="vertical"
     tools:context=".BlankFragmentAdmin1">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_recycle_film"
+            android:layout_width="150dp"
+            android:backgroundTint="@color/dark"
+            app:cornerRadius="20dp"
+            app:strokeWidth="2dp"
+            android:layout_margin="10dp"
+            app:strokeColor="@color/color"
+            android:textColor="@color/color"
+            android:text="Film"
+            android:layout_height="50dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_recycle_user"
+            android:layout_width="150dp"
+            android:backgroundTint="@color/dark"
+            app:cornerRadius="20dp"
+            app:strokeWidth="2dp"
+            android:layout_margin="10dp"
+            app:strokeColor="@color/color"
+            android:textColor="@color/color"
+            android:text="User"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_height="match_parent"
         android:id="@+id/films_list"
         />

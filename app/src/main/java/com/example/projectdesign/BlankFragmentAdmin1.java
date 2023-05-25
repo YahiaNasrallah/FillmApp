@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class BlankFragmentAdmin1 extends Fragment {
 
     FilmAdapter adabter;
+    UserAdapter adabter2;
 
     FragmentBlankAdmin1Binding binding;
     @Override
@@ -41,20 +42,55 @@ public class BlankFragmentAdmin1 extends Fragment {
         MyDataBase myDataBase=new MyDataBase(getContext());
 
 
-
-
-        adabter = new FilmAdapter(getContext(), myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
+        binding.btnRecycleFilm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(int position) {
-                Toast.makeText(getContext(), "HI", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.color));
+                binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.Wihte));
+
+                binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+                binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.color));
+
+                adabter = new FilmAdapter(getContext(), myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Toast.makeText(getContext(), "HI", Toast.LENGTH_SHORT).show();
+                    }
+
+                });
+                binding.filmsList.setAdapter(adabter);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+                binding.filmsList.setLayoutManager(linearLayoutManager);
+
+
+
+
             }
-
         });
-        binding.filmsList.setAdapter(adabter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
-        binding.filmsList.setLayoutManager(linearLayoutManager);
 
+        binding.btnRecycleUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                adabter2 = new UserAdapter(getContext(), myDataBase.getAllUser(), new UserAdapter.ClickHandle() {
+                    @Override
+                    public void onItemClick(int position) {
+
+                    }
+                });
+                        binding.filmsList.setAdapter(adabter2);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+                binding.filmsList.setLayoutManager(linearLayoutManager);
+
+
+
+
+
+            }
+        });
 
 
 
