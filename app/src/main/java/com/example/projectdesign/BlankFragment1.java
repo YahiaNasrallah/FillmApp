@@ -138,8 +138,6 @@ public class BlankFragment1 extends Fragment {
             }
         });
 
-
-
         binding.btnAll.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForColorStateLists"})
             @Override
