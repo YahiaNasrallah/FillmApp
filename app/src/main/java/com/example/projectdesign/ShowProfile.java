@@ -3,16 +3,21 @@ package com.example.projectdesign;
 
 
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -154,8 +159,6 @@ public class ShowProfile extends AppCompatActivity {
 
 
 
-
-
                     }
                 });
 
@@ -190,7 +193,6 @@ public class ShowProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 flag=true;
-                Toast.makeText(ShowProfile.this, "gg", Toast.LENGTH_SHORT).show();
                 Intent intent5=new Intent();
                 intent5.setAction(Intent.ACTION_GET_CONTENT);
                 intent5.setType("image/*");
