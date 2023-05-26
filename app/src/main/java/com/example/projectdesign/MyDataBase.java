@@ -325,6 +325,54 @@ public class MyDataBase extends SQLiteOpenHelper {
     }
 
 
+    public boolean UpdateFilm(Filme filme,String name) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_FILM_NAME,filme.getFilmName());
+        values.put(COLUMN_FILM_ID,filme.getFilmID());
+        values.put(COLUMN_FILM_HOUR,filme.getFilmHoure());
+        values.put(COLUMN_FILM_CAST,filme.getFilmCast());
+        values.put(COLUMN_FILM_TYPE,filme.getFilmType());
+        values.put(COLUMN_FILM_LANGUAGE,filme.getFilmLanguge());
+        values.put(COLUMN_FILM_CREATE_DATE,filme.getFilmCreateDate());
+        values.put(COLUMN_ACTOR1_NAME,filme.getActor1_name());
+        values.put(COLUMN_ACTOR2_NAME,filme.getActor2_name());
+        values.put(COLUMN_ACTOR3_NAME,filme.getActor3_name());
+        values.put(COLUMN_ACTOR4_NAME,filme.getActor4_name());
+        values.put(COLUMN_ACTOR5_NAME,filme.getActor5_name());
+        values.put(COLUMN_FILM_CAPTION,filme.getFilmCaption());
+        values.put(COLUMN_DATE1,filme.getDate1());
+        values.put(COLUMN_DATE2,filme.getDate2());
+        values.put(COLUMN_DATE3,filme.getDate3());
+        values.put(COLUMN_DATE4,filme.getDate4());
+        values.put(COLUMN_DATE5,filme.getDate5());
+        values.put(COLUMN_TIME1,filme.getTime1());
+        values.put(COLUMN_TIME2,filme.getTime2());
+        values.put(COLUMN_TIME3,filme.getTime3());
+        values.put(COLUMN_FILM_PRICE,filme.getFilmPrice());
+
+        values.put(COLUMN_ACTOR1_Photo,getBytes(filme.getActor1_photo()));
+        values.put(COLUMN_ACTOR2_Photo,getBytes(filme.getActor2_photo()));
+        values.put(COLUMN_ACTOR3_Photo,getBytes(filme.getActor3_photo()));
+        values.put(COLUMN_ACTOR4_Photo,getBytes(filme.getActor4_photo()));
+        values.put(COLUMN_ACTOR5_Photo,getBytes(filme.getActor5_photo()));
+
+        values.put(COLUMN_FILM_PHOTO,getBytes(filme.getFilm_Photo()));
+        values.put(COLUMN_FILM_Banner,getBytes(filme.getFilm_Banner()));
+
+
+
+        String[] array = { name+""};
+        long result = sqLiteDatabase.update(TABLE_FILMS,values,
+                " " +COLUMN_FILM_NAME + "=? ",array);
+
+
+        return result!=0;
+
+    }
+
 
 
 
@@ -695,7 +743,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         cursor.close();
         return flag;
     }
-    public boolean UpdateUSer(User user) {
+    public boolean UpdateUSer(User user,String name) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -704,7 +752,7 @@ public class MyDataBase extends SQLiteOpenHelper {
         values.put(COLUMN_USER_PASSWORD,user.getUserPassword());
         values.put(COLUMN_USER_PHOTO,getBytes(user.getPhoto()));
 
-        String[] array = { user.getUserName()+""};
+        String[] array = { name+""};
         long result = sqLiteDatabase.update(TABLE_USER,values,
                 " " +COLUMN_USER_NAME + "=? ",array);
 

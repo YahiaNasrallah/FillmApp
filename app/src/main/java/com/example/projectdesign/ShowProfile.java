@@ -123,7 +123,7 @@ public class ShowProfile extends AppCompatActivity {
 
                         user=new User(phot,name,password,phone);
 
-                        if (myDataBase.UpdateUSer(user)){
+                        if (myDataBase.UpdateUSer(user,myDataBase.getTemp())){
                             Toast.makeText(ShowProfile.this, "Done", Toast.LENGTH_SHORT).show();
 
                             binding.card1image.setVisibility(View.VISIBLE);
