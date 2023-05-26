@@ -105,7 +105,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
 
     public MyDataBase(Context context){
-        super(context,DATABASE_NAME,null,120);
+        super(context,DATABASE_NAME,null,122);
 
     }
 
@@ -522,7 +522,38 @@ public class MyDataBase extends SQLiteOpenHelper {
         return bookList;
     }
 
+    @SuppressLint("Range")
+    public boolean CheckBookedByAccount(String account,String name) {
+        SQLiteDatabase db = getReadableDatabase();
+        boolean flag=false;
 
+        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("Select * from " + TABLE_BOOK , null);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+
+               if (cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_NAME)).equals(name)&&
+                       cursor.getString(cursor.getColumnIndex(COLUMN_BOOK_ACCOUNT)).equals(account)){
+                   flag=true;
+               }
+                cursor.moveToNext();
+
+            }
+        }
+
+        cursor.close();
+        return flag;
+    }
+
+
+    public void deleteBoked(String value,String account)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_BOOK+ " WHERE "+COLUMN_BOOK_NAME+"='"+value+"'" +" and " +COLUMN_BOOK_ACCOUNT+"='"+account+"'");
+        db.close();
+    }
 
 
     //---------------------USER------------------------

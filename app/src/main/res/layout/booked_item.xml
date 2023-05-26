@@ -60,8 +60,8 @@
                         android:id="@+id/icon_delete"
                         android:layout_width="wrap_content"
                         android:src="@drawable/baseline_delete_24"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_marginStart="50dp"
                         android:layout_height="wrap_content"
                         app:tint="@color/black" />
                 </LinearLayout>

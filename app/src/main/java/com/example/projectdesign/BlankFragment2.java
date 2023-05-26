@@ -24,10 +24,7 @@ import com.example.projectdesign.databinding.FragmentBlankAdmin2Binding;
 
 public class BlankFragment2 extends Fragment {
 
-
-
-
-
+    int postin;
 
 
     BookedAdapter adabter;
@@ -40,7 +37,7 @@ public class BlankFragment2 extends Fragment {
         binding=FragmentBlank2Binding.inflate(inflater,container,false);
 
 
-
+        MyDataBase myDataBase=new MyDataBase(getContext());
 
 
 
@@ -50,6 +47,11 @@ public class BlankFragment2 extends Fragment {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+
+
+                myDataBase.deleteBoked(myDataBase.getAllBooked().get(postin).getFilm_Name(),myDataBase.getTemp());
+
 
             }
         });
@@ -65,16 +67,13 @@ public class BlankFragment2 extends Fragment {
 
 
 
-        AlertDialog dialog=builder.create();
-        dialog.setCancelable(false);
-        dialog.show();
 
 
 
 
 
 
-        MyDataBase myDataBase=new MyDataBase(getContext());
+
 
 
 
@@ -95,7 +94,10 @@ public class BlankFragment2 extends Fragment {
 
             @Override
             public void onDeletesClick(int position) {
-
+                postin=position;
+                AlertDialog dialog=builder.create();
+                dialog.setCancelable(false);
+                dialog.show();
             }
         });
                 binding.recycle2.setAdapter(adabter);

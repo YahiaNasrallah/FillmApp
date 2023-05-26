@@ -344,36 +344,31 @@ public class DateActivity extends AppCompatActivity {
                         String numChairs=String.valueOf(num);
 
 
-
-                                booked=new Booked(bitmap,name,id,type,cast,time,date,chair1,chair2,account,total,numChairs);
-
-
-
+                        if (myDataBase.CheckBookedByAccount(account,name)){
+                            Toast.makeText(DateActivity.this, "You Already Booked This Film", Toast.LENGTH_SHORT).show();
+                        }else {
 
 
+                            booked=new Booked(bitmap,name,id,type,cast,time,date,chair1,chair2,account,total,numChairs);
 
+                            if (myDataBase.AddBOOK(booked)){
+                                Toast.makeText(DateActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(DateActivity.this, "NO", Toast.LENGTH_SHORT).show();
 
-                                if (myDataBase.AddBOOK(booked)){
-                                    Toast.makeText(DateActivity.this, "Done", Toast.LENGTH_SHORT).show();
-                                }else {
-                                    Toast.makeText(DateActivity.this, "NO", Toast.LENGTH_SHORT).show();
-
-                                }
+                            }
 
 
 
 
+                            Intent intent = new Intent(DateActivity.this, PaymentActivity.class);
+                            intent.putExtra("id",id);
+                            startActivity(intent);
+                            finish();
+                        }
 
 
 
-
-
-
-
-                        Intent intent = new Intent(DateActivity.this, PaymentActivity.class);
-                        intent.putExtra("id",id);
-                        startActivity(intent);
-                        finish();
                     }
                 });
 
