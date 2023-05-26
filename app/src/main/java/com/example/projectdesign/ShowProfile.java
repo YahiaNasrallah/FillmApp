@@ -25,10 +25,10 @@ import java.io.IOException;
 
 public class ShowProfile extends AppCompatActivity {
 
-    boolean flag=true;
+    boolean flag=false;
 
     Bitmap phtot;
-    boolean flagImage=false;
+    boolean flagImage=true;
     ActivityShowProfileBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +79,7 @@ public class ShowProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                phtot=myDataBase.getUserByName(myDataBase.getTemp()).getPhoto();
 
 
                 binding.card1image.setVisibility(View.GONE);
@@ -108,22 +108,21 @@ public class ShowProfile extends AppCompatActivity {
 
 
 
+
                         User user=new User();
 
                         String name=binding.edUsernameCreate.getText().toString();
                         String phone=binding.edUserphoneUpdate.getText().toString();
                         String password=binding.edUserpasswordUpdate.getText().toString();
-                        Bitmap phot=null;
-                        if (flagImage){
-                            phot =phtot;
-                        } else {
-                            phot =myDataBase.getUserByName(myDataBase.getTemp()).getPhoto();
-                        }
+                        Bitmap phot=phtot;
+
+
 
 
                         user=new User(phot,name,password,phone);
 
                         if (myDataBase.UpdateUSer(user,myDataBase.getTemp())){
+                            myDataBase.UpdateTemp(name);
                             Toast.makeText(ShowProfile.this, "Done", Toast.LENGTH_SHORT).show();
 
                             binding.card1image.setVisibility(View.VISIBLE);
@@ -142,7 +141,9 @@ public class ShowProfile extends AppCompatActivity {
                             binding.btnUpdateccount.setVisibility(View.GONE);
 
 
-                            binding.imageUser.setImageBitmap(myDataBase.getUserByName(myDataBase.getTemp()).getPhoto());
+
+
+                            binding.imageUser.setImageBitmap(myDataBase.getUserByName(name).getPhoto());
                             binding.tvUserName.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserName());
                             binding.tvNameShow.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserName());
                             binding.tvUserPhone.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserPhone());
@@ -177,7 +178,11 @@ public class ShowProfile extends AppCompatActivity {
                     phtot =  MediaStore.Images.Media.getBitmap(ShowProfile.this.getContentResolver(),img);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+
                 }
+                binding.imageUserupdate.setImageBitmap(phtot);
+                binding.imageUser.setImageBitmap(phtot);
+
             }
         }); {
         }

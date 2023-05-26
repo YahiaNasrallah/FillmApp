@@ -88,7 +88,7 @@ public class CreateAccount extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+            binding.imageUser.setImageBitmap(image2);
             }
         }); {
         }

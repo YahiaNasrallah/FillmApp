@@ -136,7 +136,7 @@ public class BlankFragmentAdmin3 extends Fragment {
 
               binding.edUsernameCreate.setText(name);
               binding.edUserphoneUpdate.setText(phone);
-              binding.edUserphoneUpdate.setText(password);
+              binding.edUserpasswordUpdate.setText(password);
               binding.edUserRepasswordUpdate.setText(password);
               binding.imageUserupdate.setImageBitmap(image2);
 
@@ -169,6 +169,7 @@ public class BlankFragmentAdmin3 extends Fragment {
 
           if (myDataBase.UpdateUSer(user,username)){
             binding.linUsers.setVisibility(View.GONE);
+            Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
 
           }
 
@@ -611,7 +612,7 @@ public class BlankFragmentAdmin3 extends Fragment {
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
-
+    binding.imageUserupdate.setImageBitmap(image2);
       }
     }); {
     }
