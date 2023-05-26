@@ -75,7 +75,12 @@ public class BookedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             }
         });
 
+        myviewHolder.binding.iconDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
 
 
@@ -103,6 +108,7 @@ public class BookedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public interface ClickHandle{
         void onItemClick(int position);
         void onDetailsClick(int position);
+        void onDeletesClick(int position);
 
     }
 
