@@ -670,7 +670,31 @@ public class MyDataBase extends SQLiteOpenHelper {
         return flag;
     }
 
+    @SuppressLint("Range")
+    public boolean CheckUserName(String name) {
+        SQLiteDatabase db = getReadableDatabase();
 
+        boolean flag=false;
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USER, null);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+
+                if (cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)).equals(name)){
+                    flag=true;
+                }
+
+
+                cursor.moveToNext();
+
+            }
+        }
+
+        cursor.close();
+        return flag;
+    }
     public boolean UpdateUSer(User user) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 

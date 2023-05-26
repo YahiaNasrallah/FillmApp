@@ -64,9 +64,16 @@ public class Login extends AppCompatActivity {
 
 
 
-                    }else {
+                    }else
 
-                        Toast.makeText(Login.this, "Not Found", Toast.LENGTH_SHORT).show();
+                        if (myDataBase.CheckUserName(binding.edUsernamelogin.getText().toString())) {
+                            binding.edUserpasswordloign.setError("Error Password");
+                            binding.edUserpasswordloign.requestFocus();
+
+                        }else {
+
+                            binding.edUsernamelogin.setError("User Not Found");
+                            binding.edUsernamelogin.requestFocus();
 
                     }
 
