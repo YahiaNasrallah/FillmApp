@@ -28,6 +28,7 @@ public class ShowProfile extends AppCompatActivity {
     boolean flag=true;
 
     Bitmap phtot;
+    boolean flagImage=false;
     ActivityShowProfileBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,11 @@ public class ShowProfile extends AppCompatActivity {
             binding.edUserRepasswordUpdate.setVisibility(View.VISIBLE);
             binding.edUserphoneUpdate.setVisibility(View.VISIBLE);
             binding.btnUpdateccount.setVisibility(View.VISIBLE);
+            binding.edUsernameCreate.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserName());
+            binding.edUserphoneUpdate.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserPhone());
+            binding.edUserpasswordUpdate.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserPassword());
+            binding.edUserRepasswordUpdate.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserPassword());
+            binding.imageUserupdate.setImageBitmap(myDataBase.getUserByName(myDataBase.getTemp()).getPhoto());
 
 
 
@@ -107,7 +113,12 @@ public class ShowProfile extends AppCompatActivity {
                         String name=binding.edUsernameCreate.getText().toString();
                         String phone=binding.edUserphoneUpdate.getText().toString();
                         String password=binding.edUserpasswordUpdate.getText().toString();
-                        Bitmap phot=phtot;
+                        Bitmap phot=null;
+                        if (flagImage){
+                            phot =phtot;
+                        } else {
+                            phot =myDataBase.getUserByName(myDataBase.getTemp()).getPhoto();
+                        }
 
 
                         user=new User(phot,name,password,phone);
@@ -173,6 +184,7 @@ public class ShowProfile extends AppCompatActivity {
         binding.imageUserupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flag=true;
                 Toast.makeText(ShowProfile.this, "gg", Toast.LENGTH_SHORT).show();
                 Intent intent5=new Intent();
                 intent5.setAction(Intent.ACTION_GET_CONTENT);
