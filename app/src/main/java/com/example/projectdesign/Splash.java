@@ -21,15 +21,20 @@ public class Splash extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.signUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(Splash.this,Login.class);
-                startActivity(intent);
+        Thread timer= new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            finally
+            {
+                Intent i=new Intent(Splash.this,Login.class);
+                finish();
+                startActivity(i);
             }
         });
-
-
+        timer.start();
 
 
 

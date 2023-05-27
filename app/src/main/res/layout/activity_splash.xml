@@ -12,9 +12,9 @@
 
     <ImageView
         android:layout_width="250dp"
-        android:src="@drawable/filmlogo"
+        android:src="@drawable/img_2"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="250dp"
         android:layout_height="120dp"/>
 <TextView
     android:layout_width="wrap_content"
@@ -25,22 +25,6 @@
     android:textColor="@color/Wihte"
     android:textStyle="bold"
     android:layout_height="wrap_content"/>
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/sign_user"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="200dp"
-        android:text="Sign in"
-        android:textSize="18sp"
-        android:backgroundTint="@color/dark"
-        app:strokeColor="@color/color"
-        app:strokeWidth="2dp"
-        app:cornerRadius="20dp"
-        android:textColor="@color/color"
-        android:layout_height="55dp"/>
-
 
 
 </LinearLayout>
