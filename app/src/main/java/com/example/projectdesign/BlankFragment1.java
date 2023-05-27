@@ -80,7 +80,20 @@ public class BlankFragment1 extends Fragment {
             for (int i = myDataBase.getAllFilms2().size()-1; i >myDataBase.getAllFilms2().size()-4 ; i--) {
                 filmBanner.add(myDataBase.getAllFilms2().get(i));
             }
+        }else if (myDataBase.getAllFilms2().size()==3){
+            for (int i = myDataBase.getAllFilms2().size()-1; i >myDataBase.getAllFilms2().size()-4 ; i--) {
+                filmBanner.add(myDataBase.getAllFilms2().get(i));
+            }
+        }else if (myDataBase.getAllFilms2().size()==2){
+            for (int i = myDataBase.getAllFilms2().size()-1; i >myDataBase.getAllFilms2().size()-3 ; i--) {
+                filmBanner.add(myDataBase.getAllFilms2().get(i));
+            }
+        }else {
+                filmBanner.add(myDataBase.getAllFilms2().get(0));
+
         }
+
+
 
 
 
@@ -145,6 +158,7 @@ public class BlankFragment1 extends Fragment {
                         intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
                         startActivity(intent);
                     }
+
 
 
                 });

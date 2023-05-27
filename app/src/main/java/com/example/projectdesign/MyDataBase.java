@@ -293,6 +293,45 @@ public class MyDataBase extends SQLiteOpenHelper {
     }
 
 
+    @SuppressLint("Range")
+    public ArrayList<Filme> SearchAllFilmsByName(String name) {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Filme> filmeList = new ArrayList<>();
+
+
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FILMS + " WHERE " + COLUMN_FILM_NAME + " LIKE '%" + name + "%'", null);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                Filme filme = new Filme();
+                filme.setFilmName(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_NAME)));
+                filme.setFilmID(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_ID)));
+                filme.setFilmHoure(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_HOUR)));
+                filme.setFilmCast(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_CAST)));
+                filme.setFilmType(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_TYPE)));
+                filme.setFilmLanguge(cursor.getString(cursor.getColumnIndex(COLUMN_FILM_LANGUAGE)));
+                filme.setActor1_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR1_Photo))));
+                filme.setActor2_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR2_Photo))));
+                filme.setActor3_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR3_Photo))));
+                filme.setActor4_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR4_Photo))));
+                filme.setActor5_photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_ACTOR5_Photo))));
+                filme.setFilm_Photo(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_FILM_PHOTO))));
+                filme.setFilm_Banner(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_FILM_Banner))));
+
+
+                filmeList.add(filme);
+                cursor.moveToNext();
+
+            }
+        }
+
+        cursor.close();
+        return filmeList;
+    }
+
+
 
 
 
@@ -637,6 +676,39 @@ public class MyDataBase extends SQLiteOpenHelper {
 
 
     }
+
+    @SuppressLint("Range")
+    public ArrayList<User> SearchAllUsersByName(String name) {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<User> userArrayList = new ArrayList<>();
+
+
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USER_NAME + " LIKE '%" + name + "%'", null);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                User user = new User();
+
+                user.setUserName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
+                user.setUserPassword(cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)));
+                user.setUserPhone(cursor.getString(cursor.getColumnIndex(COLUMN_USER_PHONE)));
+                user.setPhoto(getImage(cursor.getBlob(cursor.getColumnIndex(COLUMN_USER_PHOTO))));
+
+
+                userArrayList.add(user);
+                cursor.moveToNext();
+
+            }
+        }
+
+        cursor.close();
+        return userArrayList;
+    }
+
+
+
 
 
     @SuppressLint("Range")

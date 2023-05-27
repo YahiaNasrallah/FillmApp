@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/dark"
+    android:layout_height="match_parent"
+    tools:context=".EditData">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/lin_films"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Welcome - Edit Film Activity :)"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/Wihte"
+                android:layout_height="wrap_content"/>
+
+
+            <EditText
+                android:id="@+id/ed_filmName"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:inputType="textPersonName"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Name"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_filmID"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:inputType="number"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film ID"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_filmDuration"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:inputType="text"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter the duration of the Film"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_filmCast"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:inputType="text"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter the Place Who Cast The Film"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/Wihte"
+                android:text="Enter Film Type"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <RadioGroup
+                    android:id="@+id/rg_1"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/rb_action"
+                        android:layout_width="wrap_content"
+                        android:text="Action"
+                        android:textColor="@color/Wihte"
+                        android:textSize="18sp"
+                        android:buttonTint="@color/color"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_romantic"
+                        android:layout_width="wrap_content"
+                        android:text="Romantic"
+                        android:textColor="@color/Wihte"
+                        android:textSize="18sp"
+                        android:buttonTint="@color/color"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_drama"
+                        android:layout_width="wrap_content"
+                        android:text="Drama"
+                        android:textColor="@color/Wihte"
+                        android:textSize="18sp"
+                        android:buttonTint="@color/color"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/rg_2"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/rb_comedy"
+                        android:layout_width="wrap_content"
+                        android:text="Comedy"
+                        android:textColor="@color/Wihte"
+                        android:textSize="18sp"
+                        android:buttonTint="@color/color"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_adventure"
+                        android:layout_width="wrap_content"
+                        android:text="Adventure"
+                        android:textColor="@color/Wihte"
+                        android:textSize="18sp"
+                        android:buttonTint="@color/color"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_horror"
+                        android:layout_width="wrap_content"
+                        android:text="Horror"
+                        android:textColor="@color/Wihte"
+                        android:textSize="18sp"
+                        android:buttonTint="@color/color"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
+
+
+
+            </RadioGroup>
+
+
+
+            <EditText
+                android:id="@+id/ed_filmLanguge"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:inputType="text"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Languge"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/ed_filmCreateDate"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Create Date"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/Wihte"
+                android:text="Enter Film Actors"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ed_actor1Name"
+                    android:layout_width="220dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Enter Film Actor 1"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ed_actor1Photo"
+                    android:layout_width="150dp"
+                    android:layout_margin="10dp"
+                    app:cornerRadius="20dp"
+                    android:text="Uplode Photo"
+                    android:layout_height="50dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ed_actor2Name"
+                    android:layout_width="220dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:inputType="textPersonName"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Enter Film Actor 2"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ed_actor2Photo"
+                    android:layout_width="150dp"
+                    android:layout_margin="10dp"
+                    app:cornerRadius="20dp"
+                    android:text="Uplode Photo"
+                    android:layout_height="50dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ed_actor3Name"
+                    android:layout_width="220dp"
+                    android:layout_gravity="center"
+                    android:inputType="textPersonName"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Enter Film Actor 3"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ed_actor3Photo"
+                    android:layout_width="150dp"
+                    android:layout_margin="10dp"
+                    app:cornerRadius="20dp"
+                    android:text="Uplode Photo"
+                    android:layout_height="50dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ed_actor4Name"
+                    android:layout_width="220dp"
+                    android:layout_gravity="center"
+                    android:inputType="textPersonName"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Enter Film Actor 4"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ed_actor4Photo"
+                    android:layout_width="150dp"
+                    android:layout_margin="10dp"
+                    app:cornerRadius="20dp"
+                    android:text="Uplode Photo"
+                    android:layout_height="50dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ed_actor5Name"
+                    android:layout_width="220dp"
+                    android:layout_gravity="center"
+                    android:inputType="textPersonName"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Enter Film Actor 5"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/ed_actor5Photo"
+                    android:layout_width="150dp"
+                    android:layout_margin="10dp"
+                    app:cornerRadius="20dp"
+                    android:text="Uplode Photo"
+                    android:layout_height="50dp"/>
+
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/ed_filmCaption"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Caption"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_height="100dp"/>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/Wihte"
+                android:text="Enter Film Dates"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"/>
+
+
+            <EditText
+                android:id="@+id/ed_date1"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Date 1"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_date2"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Date 2"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_date3"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Date 3"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_date4"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Date 4"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_date5"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Date 5"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/Wihte"
+                android:text="Enter Film Times"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/ed_time1"
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Time 1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <EditText
+                    android:id="@+id/ed_time2"
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Time 2"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+                <EditText
+                    android:id="@+id/ed_time3"
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/Wihte"
+                    android:textColorHint="@color/Wihte"
+                    android:background="@drawable/edit_shpe"
+                    android:hint="Time 3"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:layout_height="50dp"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/ed_filmPrice"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:hint="Enter Film Price"
+                android:inputType="number"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_filmPhoto"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Uplode Film Photo"
+                app:cornerRadius="20dp"
+                android:layout_height="50dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_filmBAnner"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                app:cornerRadius="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Uplode Film Banner"
+                android:layout_height="50dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_filmSave"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                app:cornerRadius="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Save"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lin_users"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_update"
+                android:layout_width="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="50dp"
+                android:layout_height="100dp">
+                <ImageView
+                    android:id="@+id/image_userupdate"
+                    android:layout_width="100dp"
+                    android:src="@drawable/createacount1"
+                    android:layout_gravity="center"
+                    android:layout_height="100dp"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <EditText
+                android:id="@+id/ed_usernameCreate"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/Wihte"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:padding="10dp"
+                android:hint="Enter Username"
+                android:layout_height="50dp"/>
+            <EditText
+                android:id="@+id/ed_userphoneUpdate"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/baseline_phone_android_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/Wihte"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:padding="10dp"
+                android:hint="Enter Mobile Phone"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/ed_userpasswordUpdate"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/Wihte"
+                android:hint="Enter Password"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:padding="10dp"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/ed_userRepasswordUpdate"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/Wihte"
+                android:textColor="@color/Wihte"
+                android:textColorHint="@color/Wihte"
+                android:background="@drawable/edit_shpe"
+                android:padding="10dp"
+                android:hint="ReEnter Password"
+                android:layout_height="50dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_Updateccount"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/dark"
+                app:strokeColor="@color/color"
+                app:strokeWidth="2dp"
+                app:cornerRadius="20dp"
+                android:textColor="@color/color"
+                android:text="Update Account"
+                android:layout_height="55dp"/>
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>

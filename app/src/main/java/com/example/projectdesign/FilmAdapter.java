@@ -62,16 +62,19 @@ public class FilmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         myviewHolder.binding.tvLangugeItem.setText(filmlist.get(position).getFilmLanguge());
         myviewHolder.binding.imageViewItem.setImageBitmap(filmlist.get(position).getFilm_Photo());
 
+        myviewHolder.binding.getRoot().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                clickHandle.onItemClick(position);
+                return false;
+            }
+        });
         myviewHolder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                clickHandle.onItemClick(position);
-
+                clickHandle.onEditClick(position);
             }
         });
-
-
 
 
 
@@ -99,6 +102,7 @@ public class FilmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //اصدار امر عند الضغط على عنصر ولكن من main
     public interface ClickHandle{
         void onItemClick(int position);
+        void onEditClick(int position);
 
     }
 

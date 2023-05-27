@@ -31,12 +31,15 @@ public class SeeAllActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(int position) {
+
+            }
+
+            @Override
+            public void onEditClick(int position) {
                 Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
                 intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
                 startActivity(intent);
             }
-
-
         });
         binding.recycleViewSeeAll.setAdapter(adabter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);

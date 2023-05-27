@@ -30,8 +30,6 @@ public class AdminMain extends AppCompatActivity {
                 replaceFragment(new BlankFragmentAdmin2());
             }else if (item.getItemId()==R.id.item_addUser) {
                 replaceFragment(new BlankFragmentAdmin4());
-            }else if (item.getItemId()==R.id.item_edit) {
-                replaceFragment(new BlankFragmentAdmin3());
             }
 
 

@@ -52,16 +52,21 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         myviewHolder.binding.tvPhoneUserItem.setText(userList.get(position).getUserPhone());
         myviewHolder.binding.imageUserItem.setImageBitmap(userList.get(position).getPhoto());
 
-        myviewHolder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
+        myviewHolder.binding.getRoot().setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public boolean onLongClick(View v) {
                 clickHandle.onItemClick(position);
-
+                return false;
             }
         });
 
 
+        myviewHolder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickHandle.onEditClick(position);
+            }
+        });
 
 
 
@@ -89,6 +94,7 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //اصدار امر عند الضغط على عنصر ولكن من main
     public interface ClickHandle{
         void onItemClick(int position);
+        void onEditClick(int position);
 
     }
 

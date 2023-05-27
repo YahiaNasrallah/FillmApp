@@ -51,18 +51,17 @@ public class BlankFragmentAdmin4 extends Fragment {
                 user=new User(image2,name,password,phone);
 
 
-                if (myDataBase.AddUser(user)){
+                  if (myDataBase.AddUser(user)){
+                        Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
+                        binding.edUsernameCreate.getText().clear();
+                        binding.edUserpasswordCreate.getText().clear();
+                        binding.edUserphoneCreate.getText().clear();
+                        binding.imageUserCreate.setImageBitmap(null);
 
-                    Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
-                    binding.edUsernameCreate.getText().clear();
-                    binding.edUserpasswordCreate.getText().clear();
-                    binding.edUserphoneCreate.getText().clear();
-                    binding.imageUserCreate.setImageBitmap(null);
+                    }else {
+                        Toast.makeText(getContext(), "NO", Toast.LENGTH_SHORT).show();
 
-                }else {
-                    Toast.makeText(getContext(), "NO", Toast.LENGTH_SHORT).show();
-
-                }
+                    }
 
             }
 
