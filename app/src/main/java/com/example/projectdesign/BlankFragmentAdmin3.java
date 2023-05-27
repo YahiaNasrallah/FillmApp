@@ -102,11 +102,11 @@ public class BlankFragmentAdmin3 extends Fragment {
 
       binding.btnRecycleUser.setOnClickListener(new View.OnClickListener() {
 
-        ArrayList<String> names=new ArrayList<>();
+
 
         @Override
         public void onClick(View v) {
-
+          ArrayList<String> names=new ArrayList<>();
           binding.spiner.setVisibility(View.VISIBLE);
           binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.color));
           binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.Wihte));
@@ -194,12 +194,13 @@ public class BlankFragmentAdmin3 extends Fragment {
   //----------------------Film----------------------------
     binding.btnRecycleFilm.setOnClickListener(new View.OnClickListener() {
 
-      ArrayList<String> films=new ArrayList<>();
+
 
 
 
       @Override
       public void onClick(View v) {
+        ArrayList<String> films=new ArrayList<>();
         binding.spiner.setVisibility(View.VISIBLE);
         binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.color));
         binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.Wihte));
@@ -217,6 +218,8 @@ public class BlankFragmentAdmin3 extends Fragment {
 
 
 
+
+
         binding.spiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
           @Override
           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -225,6 +228,21 @@ public class BlankFragmentAdmin3 extends Fragment {
             binding.linFilms.setVisibility(View.VISIBLE);
             binding.linUsers.setVisibility(View.GONE);
              fimlname=myDataBase.getFilmByName(value).getFilmName();
+
+
+             if (myDataBase.getFilmByName(value).getFilmType().equals("Action")){
+               binding.rbAction.setChecked(true);
+             }else  if (myDataBase.getFilmByName(value).getFilmType().equals("Romantic")){
+               binding.rbRomantic.setChecked(true);
+             }else  if (myDataBase.getFilmByName(value).getFilmType().equals("Drama")){
+               binding.rbDrama.setChecked(true);
+             }else  if (myDataBase.getFilmByName(value).getFilmType().equals("Comedy")){
+               binding.rbComedy.setChecked(true);
+             }else  if (myDataBase.getFilmByName(value).getFilmType().equals("Adventure")){
+               binding.rbAdventure.setChecked(true);
+             }else  if (myDataBase.getFilmByName(value).getFilmType().equals("Horror")){
+               binding.rbHorror.setChecked(true);
+             }
 
 
              bitmap_Actor1=myDataBase.getFilmByName(fimlname).getActor1_photo();
