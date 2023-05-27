@@ -26,6 +26,7 @@ public class ViewTicketActivity extends AppCompatActivity {
         binding.tvFilmName.setText(myDataBase.getBookByName2(idName).getFilm_Name());
         binding.tvFilmCast.setText(myDataBase.getBookByName2(idName).getFilm_Cast());
         binding.tvFilmType.setText(myDataBase.getBookByName2(idName).getFilm_Type());
+        binding.imageFilm.setImageBitmap(myDataBase.getBookByName2(idName).getFilm_Photo());
         binding.tvFilmDate.setText(myDataBase.getBookByName2(idName).getFilm_Date());
         binding.tvFilmTime.setText(myDataBase.getBookByName2(idName).getFilm_Time());
         binding.tvAccount.setText(myDataBase.getBookByName2(idName).getAccount_Name());

@@ -81,6 +81,7 @@
             app:cardCornerRadius="15dp"
             android:layout_height="180dp">
             <ImageView
+                android:id="@+id/image_film"
                 android:layout_width="120dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/spider"

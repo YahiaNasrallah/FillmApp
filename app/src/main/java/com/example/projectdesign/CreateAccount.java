@@ -42,8 +42,8 @@ public class CreateAccount extends AppCompatActivity {
                 User user=new User();
 
                 String name=binding.edUsernameCreate.getText().toString();
-                String phone=binding.edUsernameCreate.getText().toString();
-                String password=binding.edUsernameCreate.getText().toString();
+                String phone=binding.edUserphoneCreate.getText().toString();
+                String password=binding.edUserpasswordCreate.getText().toString();
                 Bitmap i=image2;
 
                 user=new User(image2,name,password,phone);

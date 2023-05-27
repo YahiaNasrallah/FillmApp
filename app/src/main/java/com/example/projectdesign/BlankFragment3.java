@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.projectdesign.databinding.FragmentBlank3Binding;
 
@@ -42,5 +43,13 @@ public class BlankFragment3 extends Fragment {
 
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MyDataBase myDataBase=new MyDataBase(getContext());
+        binding.imageUser.setImageBitmap(myDataBase.getUserByName(myDataBase.getTemp()).getPhoto());
+        binding.tvNameUser.setText(myDataBase.getUserByName(myDataBase.getTemp()).getUserName());
     }
 }

@@ -34,6 +34,7 @@ public class PaymentActivity extends AppCompatActivity {
         binding.numOfChirs.setText(myDataBase.getBookByName2(idName).getNumber_Chairs());
         binding.filmChairs.setText(myDataBase.getBookByName2(idName).getReserved_Chair1()+","+myDataBase.getBookByName2(idName).getReserved_Chair2());
         binding.filmTotal.setText(myDataBase.getBookByName2(idName).getTotal_Balance());
+        binding.imagePhoto.setImageBitmap(myDataBase.getBookByName2(idName).getFilm_Photo());
 
 
         binding.rb1.setOnClickListener(new View.OnClickListener() {
