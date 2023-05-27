@@ -3,8 +3,10 @@
 
     <item android:id="@+id/item_biew" android:title="View"
         android:icon="@drawable/baseline_preview_24"/>
-    <item android:id="@+id/item_add" android:title="Add"
-        android:icon="@drawable/baseline_add_24"/>
+    <item android:id="@+id/item_addFilm" android:title="Add Film"
+        android:icon="@drawable/baseline_note_add_24"/>
+    <item android:id="@+id/item_addUser" android:title="Add User"
+        android:icon="@drawable/baseline_person_add_alt_1_24"/>
     <item android:id="@+id/item_edit" android:title="Edit"
         android:icon="@drawable/baseline_edit_24"
         />

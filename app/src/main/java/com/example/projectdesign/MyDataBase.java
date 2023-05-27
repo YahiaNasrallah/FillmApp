@@ -373,7 +373,12 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     }
 
-
+    public void deleteFilm(String Name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_FILMS+ " WHERE "+COLUMN_FILM_NAME+"='"+Name+"'");
+        db.close();
+    }
 
 
 
@@ -761,6 +766,12 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     }
 
+    public void deleteUser(String Name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_USER+ " WHERE "+COLUMN_USER_NAME+"='"+Name+"'");
+        db.close();
+    }
 
 
 

@@ -26,9 +26,11 @@ public class AdminMain extends AppCompatActivity {
 
             if (item.getItemId()==R.id.item_biew){
                 replaceFragment(new BlankFragmentAdmin1());
-            } else if (item.getItemId()==R.id.item_add) {
+            } else if (item.getItemId()==R.id.item_addFilm) {
                 replaceFragment(new BlankFragmentAdmin2());
-            } else if (item.getItemId()==R.id.item_edit) {
+            }else if (item.getItemId()==R.id.item_addUser) {
+                replaceFragment(new BlankFragmentAdmin4());
+            }else if (item.getItemId()==R.id.item_edit) {
                 replaceFragment(new BlankFragmentAdmin3());
             }
 
