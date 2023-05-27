@@ -337,6 +337,17 @@ public class BlankFragment1 extends Fragment {
             }
         });
 
+
+        binding.imageSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(getContext(),SeeAllActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+
+
         binding.btnComedy.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForColorStateLists"})
             @Override

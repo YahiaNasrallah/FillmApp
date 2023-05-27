@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.projectdesign.databinding.ActivitySeeAllBinding;
@@ -45,6 +46,37 @@ public class SeeAllActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
 
         binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+
+        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.SearchAllFilmsByName(binding.edSearch.getText().toString()), new FilmAdapter.ClickHandle() {
+
+
+                    @Override
+                    public void onItemClick(int position) {
+
+                    }
+
+                    @Override
+                    public void onEditClick(int position) {
+                        Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                        intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                        startActivity(intent);
+                    }
+                });
+                binding.recycleViewSeeAll.setAdapter(adabter);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+                binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+            }
+        });
+
+
 
 
 

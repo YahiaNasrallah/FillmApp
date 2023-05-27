@@ -230,13 +230,13 @@
                     android:hint="Enter Film Actor 1"
                     android:padding="10dp"
                     android:layout_height="50dp"/>
-                <com.google.android.material.button.MaterialButton
+                <ImageView
                     android:id="@+id/ed_actor1Photo"
                     android:layout_width="150dp"
                     android:layout_margin="10dp"
+                    android:src="@drawable/img"
                     app:cornerRadius="20dp"
-                    android:text="Uplode Photo"
-                    android:layout_height="50dp"/>
+                    android:layout_height="150dp"/>
 
 
             </LinearLayout>
@@ -257,13 +257,13 @@
                     android:hint="Enter Film Actor 2"
                     android:padding="10dp"
                     android:layout_height="50dp"/>
-                <com.google.android.material.button.MaterialButton
+                <ImageView
                     android:id="@+id/ed_actor2Photo"
                     android:layout_width="150dp"
                     android:layout_margin="10dp"
                     app:cornerRadius="20dp"
-                    android:text="Uplode Photo"
-                    android:layout_height="50dp"/>
+                    android:src="@drawable/img"
+                    android:layout_height="150dp"/>
 
 
             </LinearLayout>
@@ -284,13 +284,13 @@
                     android:hint="Enter Film Actor 3"
                     android:padding="10dp"
                     android:layout_height="50dp"/>
-                <com.google.android.material.button.MaterialButton
+                <ImageView
                     android:id="@+id/ed_actor3Photo"
                     android:layout_width="150dp"
                     android:layout_margin="10dp"
                     app:cornerRadius="20dp"
-                    android:text="Uplode Photo"
-                    android:layout_height="50dp"/>
+                    android:src="@drawable/img"
+                    android:layout_height="150dp"/>
 
 
             </LinearLayout>
@@ -311,13 +311,13 @@
                     android:hint="Enter Film Actor 4"
                     android:padding="10dp"
                     android:layout_height="50dp"/>
-                <com.google.android.material.button.MaterialButton
+                <ImageView
                     android:id="@+id/ed_actor4Photo"
                     android:layout_width="150dp"
                     android:layout_margin="10dp"
                     app:cornerRadius="20dp"
-                    android:text="Uplode Photo"
-                    android:layout_height="50dp"/>
+                    android:src="@drawable/img"
+                    android:layout_height="150dp"/>
 
 
             </LinearLayout>
@@ -338,13 +338,13 @@
                     android:hint="Enter Film Actor 5"
                     android:padding="10dp"
                     android:layout_height="50dp"/>
-                <com.google.android.material.button.MaterialButton
+                <ImageView
                     android:id="@+id/ed_actor5Photo"
                     android:layout_width="150dp"
                     android:layout_margin="10dp"
+                    android:src="@drawable/img"
                     app:cornerRadius="20dp"
-                    android:text="Uplode Photo"
-                    android:layout_height="50dp"/>
+                    android:layout_height="150dp"/>
 
 
             </LinearLayout>
@@ -510,23 +510,60 @@
                 android:padding="10dp"
                 android:layout_height="50dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_filmPhoto"
-                android:layout_width="350dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:text="Uplode Film Photo"
-                app:cornerRadius="20dp"
-                android:layout_height="50dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Film Photo"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/Wihte"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/btn_filmPhoto"
+                        android:layout_width="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="Uplode Film Photo"
+                        app:cornerRadius="20dp"
+                        android:src="@drawable/img"
+                        android:layout_height="150dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Film Photo"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/Wihte"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/btn_filmBAnner"
+                        android:layout_width="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="Uplode Film Photo"
+                        app:cornerRadius="20dp"
+                        android:src="@drawable/img"
+                        android:layout_height="150dp"/>
+                </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_filmBAnner"
-                android:layout_width="350dp"
-                android:layout_gravity="center"
-                app:cornerRadius="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Uplode Film Banner"
-                android:layout_height="50dp"/>
+            </LinearLayout>
+
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_filmSave"

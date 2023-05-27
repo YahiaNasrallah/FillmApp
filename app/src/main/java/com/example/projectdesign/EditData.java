@@ -141,6 +141,14 @@ public class EditData extends AppCompatActivity {
             bitmap_photo=myDataBase.getFilmByName(name).getFilm_Photo();
             bitmap_banner=myDataBase.getFilmByName(name).getFilm_Banner();
 
+            binding.edActor1Photo.setImageBitmap(bitmap_Actor1);
+            binding.edActor2Photo.setImageBitmap(bitmap_Actor2);
+            binding.edActor3Photo.setImageBitmap(bitmap_Actor3);
+            binding.edActor4Photo.setImageBitmap(bitmap_Actor4);
+            binding.edActor5Photo.setImageBitmap(bitmap_Actor5);
+            binding.btnFilmPhoto.setImageBitmap(bitmap_photo);
+            binding.btnFilmBAnner.setImageBitmap(bitmap_banner);
+
 
             String name5=myDataBase.getFilmByName(name).getFilmName();
             String id2=myDataBase.getFilmByName(name).getFilmID();
@@ -333,6 +341,7 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher9.launch(intent2);
+
             }
         });
 
@@ -355,7 +364,7 @@ public class EditData extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
 
-
+                binding.edActor1Photo.setImageBitmap(bitmap_Actor1);
             }
         });
         {
@@ -367,8 +376,7 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher1.launch(intent2);
-                binding.edActor1Photo.setText("Selected");
-                binding.edActor1Photo.setClickable(false);
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -388,6 +396,7 @@ public class EditData extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                binding.edActor2Photo.setImageBitmap(bitmap_Actor2);
             }
         });
         {
@@ -399,8 +408,8 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher2.launch(intent2);
-                binding.edActor2Photo.setText("Selected");
-                binding.edActor2Photo.setClickable(false);
+
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -419,7 +428,7 @@ public class EditData extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.edActor3Photo.setImageBitmap(bitmap_Actor3);
             }
         });
         {
@@ -431,8 +440,8 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher3.launch(intent2);
-                binding.edActor3Photo.setText("Selected");
-                binding.edActor3Photo.setClickable(false);
+
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -451,7 +460,7 @@ public class EditData extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.edActor4Photo.setImageBitmap(bitmap_Actor4);
             }
         });
         {
@@ -463,8 +472,8 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher4.launch(intent2);
-                binding.edActor4Photo.setText("Selected");
-                binding.edActor4Photo.setClickable(false);
+
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -484,7 +493,7 @@ public class EditData extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.edActor5Photo.setImageBitmap(bitmap_Actor5);
             }
         });
         {
@@ -496,8 +505,8 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher5.launch(intent2);
-                binding.edActor5Photo.setText("Selected");
-                binding.edActor5Photo.setClickable(false);
+
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -515,7 +524,7 @@ public class EditData extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.btnFilmPhoto.setImageBitmap(bitmap_photo);
 
             }
         });
@@ -528,8 +537,8 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancherphoto.launch(intent2);
-                binding.btnFilmPhoto.setText("Selected");
-                binding.btnFilmPhoto.setClickable(false);
+
+
             }
         });
 
@@ -547,6 +556,7 @@ public class EditData extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                binding.btnFilmBAnner.setImageBitmap(bitmap_banner);
             }
         });
         {
@@ -558,8 +568,8 @@ public class EditData extends AppCompatActivity {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancherbanner.launch(intent2);
-                binding.btnFilmBAnner.setText("Selected");
-                binding.btnFilmBAnner.setClickable(false);
+
+
             }
         });
 
