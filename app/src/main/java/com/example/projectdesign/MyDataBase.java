@@ -292,6 +292,11 @@ public class MyDataBase extends SQLiteOpenHelper {
         return filmeList;
     }
 
+
+
+
+
+
     @SuppressLint("Range")
     public ArrayList<Filme> getFilmByType(String type) {
         SQLiteDatabase db = getReadableDatabase();

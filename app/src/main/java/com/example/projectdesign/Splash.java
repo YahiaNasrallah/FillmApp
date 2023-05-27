@@ -30,8 +30,8 @@ public class Splash extends AppCompatActivity {
             finally
             {
                 Intent i=new Intent(Splash.this,Login.class);
-                finish();
                 startActivity(i);
+                finish();
             }
         });
         timer.start();

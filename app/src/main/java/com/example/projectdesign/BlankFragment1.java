@@ -21,14 +21,20 @@ import android.widget.Toast;
 
 import com.example.projectdesign.databinding.FragmentBlank1Binding;
 
+import java.util.ArrayList;
+
 public class BlankFragment1 extends Fragment {
 
     Intent intent;
 
     FilmAdapter2 adabter;
+    BannerAdapter adabterBanner;
 
     String type;
 
+    String banerFilm1;
+    String banerFilm2;
+    String banerFilm3;
     FragmentBlank1Binding binding;
 
     @Override
@@ -67,20 +73,35 @@ public class BlankFragment1 extends Fragment {
         binding.recycleitemfilm.setLayoutManager(linearLayoutManager);
 
 
+        ArrayList<Filme> filmBanner=new ArrayList<>();
+
+
+        if (myDataBase.getAllFilms2().size()>3){
+            for (int i = myDataBase.getAllFilms2().size()-1; i >myDataBase.getAllFilms2().size()-4 ; i--) {
+                filmBanner.add(myDataBase.getAllFilms2().get(i));
+            }
+        }
+
+
+
+        adabterBanner = new BannerAdapter(getContext(), filmBanner ,new BannerAdapter.ClickHandle() {
+            @Override
+            public void onItemClick(int position) {
+
+            }
+        });
+                binding.recycleBanner.setAdapter(adabterBanner);
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+
+        binding.recycleBanner.setLayoutManager(linearLayoutManager2);
 
 
 
 
 
 
-            String banerFilm1="Yahia";
-            String banerFilm2="Yahia";
-            String banerFilm3="Yahia";
 
 
-        binding.imag1.setImageBitmap(myDataBase.getFilmByName(banerFilm1).getFilm_Banner());
-        binding.imag2.setImageBitmap(myDataBase.getFilmByName(banerFilm2).getFilm_Banner());
-        binding.imag3.setImageBitmap(myDataBase.getFilmByName(banerFilm3).getFilm_Banner());
 
 
         binding.btnAction.setOnClickListener(new View.OnClickListener() {
@@ -479,40 +500,6 @@ public class BlankFragment1 extends Fragment {
                 }
             });
 
-
-        binding.imag1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(),DetailsActivity.class);
-
-                intent.putExtra("name",banerFilm1);
-
-
-                startActivity(intent);
-            }
-        });
-        binding.imag2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(),DetailsActivity.class);
-
-                intent.putExtra("name",banerFilm2);
-
-
-                startActivity(intent);
-            }
-        });
-        binding.imag3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(),DetailsActivity.class);
-
-                intent.putExtra("name",banerFilm3);
-
-
-                startActivity(intent);
-            }
-        });
 
 
 

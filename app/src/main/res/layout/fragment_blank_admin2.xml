@@ -458,7 +458,7 @@
                 android:textColorHint="@color/Wihte"
                 android:background="@drawable/edit_shpe"
                 android:hint="Time 1"
-                android:inputType="number"
+                android:inputType="datetime"
                 android:padding="10dp"
                 android:layout_height="50dp"/>
             <EditText
@@ -470,7 +470,7 @@
                 android:textColorHint="@color/Wihte"
                 android:background="@drawable/edit_shpe"
                 android:hint="Time 2"
-                android:inputType="number"
+                android:inputType="datetime"
                 android:padding="10dp"
                 android:layout_height="50dp"/>
             <EditText
@@ -482,7 +482,7 @@
                 android:textColorHint="@color/Wihte"
                 android:background="@drawable/edit_shpe"
                 android:hint="Time 3"
-                android:inputType="number"
+                android:inputType="datetime"
                 android:padding="10dp"
                 android:layout_height="50dp"/>
 

@@ -72,89 +72,10 @@
         </LinearLayout>
 
 
-    <HorizontalScrollView
+<androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
-    android:layout_marginTop="25dp"
-    android:layout_height="wrap_content">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="15dp">
-        <LinearLayout
-            android:layout_width="280dp"
-            android:layout_height="180dp">
-            <ImageView
-                android:id="@+id/imag1"
-                android:layout_width="280dp"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/thor"/>
-
-        </LinearLayout>
-
-
-
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="15dp">
-        <LinearLayout
-            android:layout_width="280dp"
-            android:layout_height="180dp">
-            <ImageView
-                android:id="@+id/imag2"
-                android:layout_width="280dp"
-                android:scaleType="centerCrop"
-                android:layout_height="180dp"
-                android:src="@drawable/blackadam"/>
-
-        </LinearLayout>
-
-
-
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="15dp">
-        <LinearLayout
-            android:layout_width="280dp"
-            android:layout_height="180dp">
-            <ImageView
-                android:id="@+id/imag3"
-                android:layout_width="280dp"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/interstaller"/>
-
-        </LinearLayout>
-
-
-
-
-    </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-
-</HorizontalScrollView>
-
+    android:id="@+id/recycleBanner"
+    android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
