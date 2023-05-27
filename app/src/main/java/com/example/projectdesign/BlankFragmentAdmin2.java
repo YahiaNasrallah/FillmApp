@@ -68,6 +68,7 @@ public class BlankFragmentAdmin2 extends Fragment {
 
 
 
+
         binding.rbAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,27 +198,15 @@ public class BlankFragmentAdmin2 extends Fragment {
                     binding.edActor3Name.getText().clear();
                     binding.edActor4Name.getText().clear();
                     binding.edActor5Name.getText().clear();
+                    binding.btnFilmPhoto.setImageResource(R.drawable.img);
+                    binding.btnFilmBAnner.setImageResource(R.drawable.img);
+                    binding.edActor1Photo.setImageResource(R.drawable.img);
+                    binding.edActor2Photo.setImageResource(R.drawable.img);
+                    binding.edActor3Photo.setImageResource(R.drawable.img);
+                    binding.edActor4Photo.setImageResource(R.drawable.img);
+                    binding.edActor5Photo.setImageResource(R.drawable.img);
 
-                    binding.edActor1Photo.setClickable(true);
-                    binding.edActor1Photo.setText("Uplode Photo");
 
-                    binding.edActor2Photo.setClickable(true);
-                    binding.edActor3Photo.setText("Uplode Photo");
-
-                    binding.edActor3Photo.setClickable(true);
-                    binding.edActor3Photo.setText("Uplode Photo");
-
-                    binding.edActor4Photo.setClickable(true);
-                    binding.edActor4Photo.setText("Uplode Photo");
-
-                    binding.edActor5Photo.setClickable(true);
-                    binding.edActor5Photo.setText("Uplode Photo");
-
-                    binding.btnFilmPhoto.setClickable(true);
-                    binding.btnFilmPhoto.setText("Uplode Photo");
-
-                    binding.btnFilmBAnner.setClickable(true);
-                    binding.btnFilmBAnner.setText("Uplode Photo");
 
                     binding.rg1.clearCheck();
                     binding.rg2.clearCheck();
@@ -261,7 +250,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                     throw new RuntimeException(e);
                 }
 
-
+                binding.edActor1Photo.setImageBitmap(bitmap_Actor1);
             }
         });
         {
@@ -273,8 +262,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher1.launch(intent2);
-                binding.edActor1Photo.setText("Selected");
-                binding.edActor1Photo.setClickable(false);
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -294,6 +282,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                binding.edActor2Photo.setImageBitmap(bitmap_Actor2);
             }
         });
         {
@@ -305,8 +294,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher2.launch(intent2);
-                binding.edActor2Photo.setText("Selected");
-                binding.edActor2Photo.setClickable(false);
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -325,7 +313,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.edActor3Photo.setImageBitmap(bitmap_Actor3);
             }
         });
         {
@@ -337,8 +325,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher3.launch(intent2);
-                binding.edActor3Photo.setText("Selected");
-                binding.edActor3Photo.setClickable(false);
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -357,7 +344,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.edActor4Photo.setImageBitmap(bitmap_Actor4);
             }
         });
         {
@@ -369,8 +356,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher4.launch(intent2);
-                binding.edActor4Photo.setText("Selected");
-                binding.edActor4Photo.setClickable(false);
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -390,7 +376,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.edActor5Photo.setImageBitmap(bitmap_Actor5);
             }
         });
         {
@@ -402,8 +388,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancher5.launch(intent2);
-                binding.edActor5Photo.setText("Selected");
-                binding.edActor5Photo.setClickable(false);
+
             }
         });
         //--------------------------------------------------------------------------------------
@@ -421,7 +406,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
+                binding.btnFilmPhoto.setImageBitmap(bitmap_photo);
 
             }
         });
@@ -434,8 +419,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancherphoto.launch(intent2);
-                binding.btnFilmPhoto.setText("Selected");
-                binding.btnFilmPhoto.setClickable(false);
+
             }
         });
 
@@ -453,6 +437,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                binding.btnFilmBAnner.setImageBitmap(bitmap_banner);
             }
         });
         {
@@ -464,8 +449,7 @@ public class BlankFragmentAdmin2 extends Fragment {
                 intent2.setAction(Intent.ACTION_GET_CONTENT);
                 intent2.setType("image/*");
                 lancherbanner.launch(intent2);
-                binding.btnFilmBAnner.setText("Selected");
-                binding.btnFilmBAnner.setClickable(false);
+
             }
         });
 
