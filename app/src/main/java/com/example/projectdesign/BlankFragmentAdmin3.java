@@ -107,6 +107,14 @@ public class BlankFragmentAdmin3 extends Fragment {
         @Override
         public void onClick(View v) {
 
+          binding.spiner.setVisibility(View.VISIBLE);
+          binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.color));
+          binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.Wihte));
+
+          binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+          binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.color));
+
+
           for (int i = 0; i <myDataBase.getAllUser().size() ; i++) {
             names.add(myDataBase.getAllUser().get(i).getUserName());
           }
@@ -139,6 +147,8 @@ public class BlankFragmentAdmin3 extends Fragment {
               binding.edUserpasswordUpdate.setText(password);
               binding.edUserRepasswordUpdate.setText(password);
               binding.imageUserupdate.setImageBitmap(image2);
+
+
 
 
             }
@@ -190,6 +200,13 @@ public class BlankFragmentAdmin3 extends Fragment {
 
       @Override
       public void onClick(View v) {
+        binding.spiner.setVisibility(View.VISIBLE);
+        binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.color));
+        binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.Wihte));
+
+        binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+        binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.color));
+
 
         for (int i = 0; i <myDataBase.getAllFilms2().size() ; i++) {
           films.add(myDataBase.getAllFilms2().get(i).getFilmName());

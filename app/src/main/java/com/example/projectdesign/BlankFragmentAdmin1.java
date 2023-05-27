@@ -45,11 +45,11 @@ public class BlankFragmentAdmin1 extends Fragment {
         binding.btnRecycleFilm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.color));
-                binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.Wihte));
+                binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.color));
+                binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.Wihte));
 
-                binding.btnRecycleUser.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
-                binding.btnRecycleUser.setTextColor(getResources().getColorStateList(R.color.color));
+                binding.btnRecycleFilm.setBackgroundTintList(getResources().getColorStateList(R.color.dark));
+                binding.btnRecycleFilm.setTextColor(getResources().getColorStateList(R.color.color));
 
                 adabter = new FilmAdapter(getContext(), myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
                     @Override
