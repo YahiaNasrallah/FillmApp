@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,33 +28,14 @@ public class SeeAllActivity extends AppCompatActivity {
 
         MyDataBase myDataBase=new MyDataBase(SeeAllActivity.this);
 
-
-        adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
-
-
+        binding.edSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onItemClick(int position) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onEditClick(int position) {
-                Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
-                intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
-                startActivity(intent);
-            }
-        });
-        binding.recycleViewSeeAll.setAdapter(adabter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
-
-        binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
-
-
-        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
                 adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.SearchAllFilmsByName(binding.edSearch.getText().toString()), new FilmAdapter.ClickHandle() {
 
 
@@ -74,7 +57,33 @@ public class SeeAllActivity extends AppCompatActivity {
                 binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
 
             }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
         });
+        adabter = new FilmAdapter(SeeAllActivity.this, myDataBase.getAllFilms2(), new FilmAdapter.ClickHandle() {
+
+
+            @Override
+            public void onItemClick(int position) {
+
+            }
+
+            @Override
+            public void onEditClick(int position) {
+                Intent intent=new Intent(SeeAllActivity.this,DetailsActivity.class);
+                intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                startActivity(intent);
+            }
+        });
+        binding.recycleViewSeeAll.setAdapter(adabter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(SeeAllActivity.this);
+
+        binding.recycleViewSeeAll.setLayoutManager(linearLayoutManager);
+
+
 
 
 

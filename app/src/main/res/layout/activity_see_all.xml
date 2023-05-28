@@ -8,32 +8,36 @@
     android:background="@color/dark"
     tools:context=".SeeAllActivity">
 
-    <LinearLayout
+
+    <AutoCompleteTextView
+        android:id="@+id/ed_search"
         android:layout_width="match_parent"
-        android:gravity="center"
+        android:backgroundTint="@color/darkwhite"
+        android:textColor="@color/wite"
+        android:textColorHint="@color/wite"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:name="search view"
+        android:completionThreshold="1"
+        android:completionHint="message"
+        android:hint="Enter Word Here"
+        android:background="@drawable/deisgn_edittext"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/ed_search"
-            android:layout_width="220dp"
-            android:layout_margin="5dp"
-            android:hint="Enter Word Here"
-            android:layout_height="50dp"/>
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="120dp"
-            android:id="@+id/btn_search"
-            app:cornerRadius="20dp"
-            android:text="Search"
-            android:layout_margin="5dp"
-            android:layout_height="50dp"/>
-    </LinearLayout>
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawableTint="@color/wite"
+        android:drawablePadding="10dp"
+        android:inputType="text"
+        />
+
+
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewSeeAll"
         android:layout_marginHorizontal="10dp"
         android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
         android:layout_height="match_parent"/>
 
 </LinearLayout>
