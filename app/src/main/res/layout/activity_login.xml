@@ -44,6 +44,7 @@
         android:layout_height="50dp"/>
     <EditText
         android:id="@+id/ed_userpasswordloign"
+        android:drawableRight="@drawable/baseline_hide_source_24"
         android:layout_width="350dp"
         android:layout_gravity="center"
         android:drawableLeft="@drawable/baseline_lock_24"
@@ -57,6 +58,7 @@
         android:background="@drawable/edit_shpe"
         android:layout_marginTop="20dp"
         android:layout_height="50dp"/>
+
 
     <Button
         android:id="@+id/login"
