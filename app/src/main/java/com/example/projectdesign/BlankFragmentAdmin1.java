@@ -3,9 +3,11 @@ package com.example.projectdesign;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -20,12 +22,19 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.projectdesign.databinding.FragmentBlankAdmin1Binding;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class BlankFragmentAdmin1 extends Fragment {
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
+
+public class BlankFragmentAdmin1 extends Fragment  {
 
     FilmAdapter adabter;
+
+    RecyclerView recyclerView;
     UserAdapter adabter2;
 
     boolean flag=false;
@@ -38,9 +47,8 @@ public class BlankFragmentAdmin1 extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentBlankAdmin1Binding.inflate(inflater, container, false);
+        recyclerView=binding.filmsList;
         MyDataBase myDataBase=new MyDataBase(getContext());
-
-
 
         binding.edSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -208,6 +216,9 @@ public class BlankFragmentAdmin1 extends Fragment {
         return binding.getRoot();
     }
 
+    User deletedUser=null;
+    Filme deletedFilm=null ;
+
     ItemTouchHelper.SimpleCallback itemTouchHelperCallbackUser= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
                 @Override
                 public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -216,30 +227,48 @@ public class BlankFragmentAdmin1 extends Fragment {
                     return false;
                 }
 
-                @Override
+
+
+        @Override
                 public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
                     MyDataBase myDataBase=new MyDataBase(getContext());
-                        myDataBase.deleteUser(myDataBase.getAllUser().get(viewHolder.getAdapterPosition()).getUserName());
+                    final  int postin=viewHolder.getAdapterPosition();
+
+                    deletedUser=myDataBase.getAllUser().get(postin);
+                    myDataBase.deleteUser(myDataBase.getAllUser().get(postin).getUserName());
 
 
-                    adabter2 = new UserAdapter(getContext(), myDataBase.getAllUser(), new UserAdapter.ClickHandle() {
-                        @Override
-                        public void onItemClick(int position) {
+                    Snackbar.make((View) recyclerView, (CharSequence) deletedUser,Snackbar.LENGTH_LONG)
+                            .setAction("Undo", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    myDataBase.AddUser(deletedUser);
+                                    adabter2.notifyItemInserted(postin);
 
-                            flag = false;
+                                }
+                            })
+                            .show();
 
-                        }
 
-                        @Override
-                        public void onEditClick(int position) {
-                            Intent intent = new Intent(getContext(), EditData.class);
-                            intent.putExtra("name", myDataBase.getAllUser().get(position).getUserName());
-                            intent.putExtra("type", "user");
-                            startActivity(intent);
-                        }
 
-                    });
+
+                     adabter2 = new UserAdapter(getContext(), myDataBase.getAllUser(), new UserAdapter.ClickHandle() {
+                                        @Override
+                                        public void onItemClick(int position) {
+
+                                            flag = false;
+
+                                        }
+
+                                        @Override
+                                        public void onEditClick(int position) {
+                                            Intent intent = new Intent(getContext(), EditData.class);
+                                            intent.putExtra("name", myDataBase.getAllUser().get(position).getUserName());
+                                            intent.putExtra("type", "user");
+                                            startActivity(intent);
+                                        }
+
+                                    });
                     new ItemTouchHelper(itemTouchHelperCallbackUser).attachToRecyclerView(binding.filmsList);
                     binding.filmsList.setAdapter(adabter2);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -251,7 +280,22 @@ public class BlankFragmentAdmin1 extends Fragment {
 
 
                 }
+        public void onChildDraw (Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,float dX, float dY,int actionState, boolean isCurrentlyActive){
+
+            new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(getContext(),R.color.color))
+                    .addSwipeLeftActionIcon(R.drawable.baseline_delete_forever_24)
+                    .addSwipeRightBackgroundColor(ContextCompat.getColor(getContext(),R.color.color))
+                    .addSwipeRightActionIcon( R.drawable.baseline_delete_forever_24)
+
+                    .create()
+                    .decorate();
+
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
             };
+
+
     ItemTouchHelper.SimpleCallback itemTouchHelperCallbackFilm= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
                 @Override
                 public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -288,6 +332,8 @@ public class BlankFragmentAdmin1 extends Fragment {
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
                     binding.filmsList.setLayoutManager(linearLayoutManager);
+
+
 
 
                 }
