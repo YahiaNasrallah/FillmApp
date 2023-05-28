@@ -4,9 +4,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.ColorLong;
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -37,8 +40,12 @@ public class BlankFragmentAdmin1 extends Fragment  {
     RecyclerView recyclerView;
     UserAdapter adabter2;
 
+
+    CoordinatorLayout coordinatorLayout;
     boolean flag=false;
     boolean flagButton=false;
+
+    ArrayList<User> TempDeleted;
 
     FragmentBlankAdmin1Binding binding;
 
@@ -46,8 +53,9 @@ public class BlankFragmentAdmin1 extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = FragmentBlankAdmin1Binding.inflate(inflater, container, false);
+        binding = FragmentBlankAdmin1Binding.inflate( inflater, container, false);
         recyclerView=binding.filmsList;
+        TempDeleted=new ArrayList<>();
         MyDataBase myDataBase=new MyDataBase(getContext());
 
         binding.edSearch.addTextChangedListener(new TextWatcher() {
@@ -216,8 +224,7 @@ public class BlankFragmentAdmin1 extends Fragment  {
         return binding.getRoot();
     }
 
-    String deletedUser=null;
-    Filme deletedFilm=null ;
+    Filme deletedFilm=null;
 
     ItemTouchHelper.SimpleCallback itemTouchHelperCallbackUser= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
                 @Override
@@ -234,9 +241,24 @@ public class BlankFragmentAdmin1 extends Fragment  {
                     MyDataBase myDataBase=new MyDataBase(getContext());
                     final  int postin=viewHolder.getAdapterPosition();
 
-                    deletedUser=myDataBase.getAllUser().get(postin).getUserName();
+                    TempDeleted.add(myDataBase.getAllUser().get(postin));
                     myDataBase.deleteUser(myDataBase.getAllUser().get(postin).getUserName());
                     adabter2.notifyItemInserted(postin);
+
+                        Snackbar.make(binding.layMain,"mfvkf",Snackbar.LENGTH_LONG)
+                                .setTextColor(Color.WHITE)
+                                .setBackgroundTint(getResources().getColor(R.color.color))
+                                .setAction("Create", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Toast.makeText(getContext(), "ff", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                })
+                                .setActionTextColor(Color.WHITE)
+                                .show();
+
+
 
 
 
@@ -263,7 +285,6 @@ public class BlankFragmentAdmin1 extends Fragment  {
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
                     binding.filmsList.setLayoutManager(linearLayoutManager);
-
 
 
 
