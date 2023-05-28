@@ -45,7 +45,8 @@ public class BlankFragmentAdmin1 extends Fragment  {
     boolean flag=false;
     boolean flagButton=false;
 
-    ArrayList<User> TempDeleted;
+    ArrayList<User> TempDeletedUser;
+    ArrayList<Filme> TempDeletedFilm;
 
     FragmentBlankAdmin1Binding binding;
 
@@ -55,7 +56,6 @@ public class BlankFragmentAdmin1 extends Fragment  {
 
         binding = FragmentBlankAdmin1Binding.inflate( inflater, container, false);
         recyclerView=binding.filmsList;
-        TempDeleted=new ArrayList<>();
         MyDataBase myDataBase=new MyDataBase(getContext());
 
         binding.edSearch.addTextChangedListener(new TextWatcher() {
@@ -239,19 +239,23 @@ public class BlankFragmentAdmin1 extends Fragment  {
         @Override
                 public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                     MyDataBase myDataBase=new MyDataBase(getContext());
+                    TempDeletedUser=new ArrayList<>();
                     final  int postin=viewHolder.getAdapterPosition();
 
-                    TempDeleted.add(myDataBase.getAllUser().get(postin));
+                    TempDeletedUser.add(myDataBase.getAllUser().get(postin));
                     myDataBase.deleteUser(myDataBase.getAllUser().get(postin).getUserName());
                     adabter2.notifyItemInserted(postin);
 
-                        Snackbar.make(binding.layMain,"mfvkf",Snackbar.LENGTH_LONG)
+
+
+
+            Snackbar.make(binding.layMain,"User Deleted",Snackbar.LENGTH_LONG)
                                 .setTextColor(Color.WHITE)
                                 .setBackgroundTint(getResources().getColor(R.color.color))
-                                .setAction("Create", new View.OnClickListener() {
+                                .setAction("Undo", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        Toast.makeText(getContext(), "ff", Toast.LENGTH_SHORT).show();
+                                        myDataBase.AddUser(TempDeletedUser.get(0));
                                     }
 
                                 })
@@ -316,9 +320,35 @@ public class BlankFragmentAdmin1 extends Fragment  {
 
                 @Override
                 public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
                     MyDataBase myDataBase=new MyDataBase(getContext());
-                        myDataBase.deleteFilm(myDataBase.getAllFilms2().get(viewHolder.getAdapterPosition()).getFilmName());
+                    TempDeletedFilm=new ArrayList<>();
+                    final  int postin=viewHolder.getAdapterPosition();
+
+                    TempDeletedFilm.add(myDataBase.getAllFilms2().get(postin));
+                    myDataBase.deleteFilm(myDataBase.getAllFilms2().get(postin).getFilmName());
+                    adabter.notifyItemInserted(postin);
+
+
+
+
+                    Snackbar.make(binding.layMain,"Film Deleted",Snackbar.LENGTH_LONG)
+                            .setTextColor(Color.WHITE)
+                            .setBackgroundTint(getResources().getColor(R.color.color))
+                            .setAction("Undo", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    myDataBase.AddFilm(TempDeletedFilm.get(0));
+                                }
+
+                            })
+                            .setActionTextColor(Color.WHITE)
+                            .show();
+
+
+
+
+
+
 
 
                     adabter = new FilmAdapter(getContext(), myDataBase.SearchAllFilmsByName(binding.edSearch.getText().toString()), new FilmAdapter.ClickHandle() {
