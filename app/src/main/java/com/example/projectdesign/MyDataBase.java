@@ -419,6 +419,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
     public void deleteFilm(String Name)
     {
+
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_FILMS+ " WHERE "+COLUMN_FILM_NAME+"='"+Name+"'");
         db.close();
