@@ -69,9 +69,7 @@ public class Login extends AppCompatActivity {
                             myDataBase.UpdateTemp(binding.edUsernamelogin.getText().toString());
                         }
 
-                        editor.putString("savedName",binding.edUsernamelogin.getText().toString());
-                        editor.putString("savedPassword",binding.edUserpasswordloign.getText().toString());
-                        editor.commit();
+
 
                         Toast.makeText(Login.this, "Found", Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(Login.this,MainActivity.class);

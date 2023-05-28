@@ -216,7 +216,7 @@ public class BlankFragmentAdmin1 extends Fragment  {
         return binding.getRoot();
     }
 
-    User deletedUser=null;
+    String deletedUser=null;
     Filme deletedFilm=null ;
 
     ItemTouchHelper.SimpleCallback itemTouchHelperCallbackUser= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
@@ -234,20 +234,9 @@ public class BlankFragmentAdmin1 extends Fragment  {
                     MyDataBase myDataBase=new MyDataBase(getContext());
                     final  int postin=viewHolder.getAdapterPosition();
 
-                    deletedUser=myDataBase.getAllUser().get(postin);
+                    deletedUser=myDataBase.getAllUser().get(postin).getUserName();
                     myDataBase.deleteUser(myDataBase.getAllUser().get(postin).getUserName());
-
-
-                    Snackbar.make((View) recyclerView, (CharSequence) deletedUser,Snackbar.LENGTH_LONG)
-                            .setAction("Undo", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    myDataBase.AddUser(deletedUser);
-                                    adabter2.notifyItemInserted(postin);
-
-                                }
-                            })
-                            .show();
+                    adabter2.notifyItemInserted(postin);
 
 
 
@@ -337,9 +326,22 @@ public class BlankFragmentAdmin1 extends Fragment  {
 
 
                 }
+        public void onChildDraw (Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,float dX, float dY,int actionState, boolean isCurrentlyActive){
+
+            new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(getContext(),R.color.color))
+                    .addSwipeLeftActionIcon(R.drawable.baseline_delete_forever_24)
+                    .addSwipeRightBackgroundColor(ContextCompat.getColor(getContext(),R.color.color))
+                    .addSwipeRightActionIcon( R.drawable.baseline_delete_forever_24)
+
+                    .create()
+                    .decorate();
+
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
+    };
             };
 
 
 
 
-}

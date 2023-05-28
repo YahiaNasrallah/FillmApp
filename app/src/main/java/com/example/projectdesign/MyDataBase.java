@@ -105,7 +105,7 @@ public class MyDataBase extends SQLiteOpenHelper {
 
 
     public MyDataBase(Context context){
-        super(context,DATABASE_NAME,null,122);
+        super(context,DATABASE_NAME,null,124);
 
     }
 
