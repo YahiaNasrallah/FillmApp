@@ -1,6 +1,8 @@
 package com.example.projectdesign;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,12 +16,16 @@ import com.example.projectdesign.databinding.FragmentBlank3Binding;
 
 
 public class BlankFragment3 extends Fragment {
-
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     FragmentBlank3Binding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentBlank3Binding.inflate(inflater,container,false);
+
+        preferences= getContext().getSharedPreferences("MyPrefe", Context.MODE_PRIVATE);
+        editor=preferences.edit();
 
 
         MyDataBase myDataBase=new MyDataBase(getContext());
@@ -36,7 +42,15 @@ public class BlankFragment3 extends Fragment {
         });
 
 
-
+    binding.logOut.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            editor.clear();
+            editor.commit();
+            Intent intent=new Intent(getContext(),Login.class);
+            startActivity(intent);
+        }
+    });
 
 
 
