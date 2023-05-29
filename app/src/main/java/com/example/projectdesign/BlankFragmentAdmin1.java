@@ -1,5 +1,6 @@
 package com.example.projectdesign;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -264,6 +265,33 @@ public class BlankFragmentAdmin1 extends Fragment  {
                                     public void onClick(View v) {
 
                                         myDataBase.AddUser(TempDeletedUser.get(0));
+
+                                        adabter2 = new UserAdapter(getContext(), myDataBase.getAllUser(), new UserAdapter.ClickHandle() {
+                                            @Override
+                                            public void onItemClick(int position) {
+
+                                                flag = false;
+
+                                            }
+
+                                            @Override
+                                            public void onEditClick(int position) {
+                                                Intent intent = new Intent(getContext(), EditData.class);
+                                                intent.putExtra("name", myDataBase.getAllUser().get(position).getUserName());
+                                                intent.putExtra("type", "user");
+                                                startActivity(intent);
+                                            }
+
+                                        });
+
+                                        new ItemTouchHelper(itemTouchHelperCallbackUser).attachToRecyclerView(binding.filmsList);
+                                        binding.filmsList.setAdapter(adabter2);
+                                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+                                        binding.filmsList.setLayoutManager(linearLayoutManager);
+
+
+
                                     }
 
                                 })
@@ -292,6 +320,7 @@ public class BlankFragmentAdmin1 extends Fragment  {
                                         }
 
                                     });
+
                     new ItemTouchHelper(itemTouchHelperCallbackUser).attachToRecyclerView(binding.filmsList);
                     binding.filmsList.setAdapter(adabter2);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -326,6 +355,7 @@ public class BlankFragmentAdmin1 extends Fragment  {
                     return false;
                 }
 
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                     MyDataBase myDataBase=new MyDataBase(getContext());
@@ -354,6 +384,30 @@ public class BlankFragmentAdmin1 extends Fragment  {
                                 @Override
                                 public void onClick(View v) {
                                     myDataBase.AddFilm(TempDeletedFilm.get(0));
+
+                                    adabter = new FilmAdapter(getContext(), myDataBase.SearchAllFilmsByName(binding.edSearch.getText().toString()), new FilmAdapter.ClickHandle() {
+                                        @Override
+                                        public void onItemClick(int position) {
+                                            flag=true;
+
+
+                                        }
+
+                                        @Override
+                                        public void onEditClick(int position) {
+                                            Intent intent=new Intent(getContext(), EditData.class);
+                                            intent.putExtra("name",myDataBase.getAllFilms2().get(position).getFilmName());
+                                            intent.putExtra("type","film");
+                                            startActivity(intent);
+                                        }
+                                    });
+                                    new ItemTouchHelper(itemTouchHelperCallbackFilm).attachToRecyclerView(binding.filmsList);
+                                    binding.filmsList.setAdapter(adabter);
+                                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                                    binding.filmsList.setLayoutManager(linearLayoutManager);
+
+
+
                                 }
 
                             })
