@@ -25,9 +25,6 @@
             android:name=".AdminMain"
             android:exported="false" />
         <activity
-            android:name=".AdminLogin"
-            android:exported="false" />
-        <activity
             android:name=".ViewTicketActivity"
             android:exported="false" />
         <activity

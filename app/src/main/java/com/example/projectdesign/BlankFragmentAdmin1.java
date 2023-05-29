@@ -224,7 +224,7 @@ public class BlankFragmentAdmin1 extends Fragment  {
         return binding.getRoot();
     }
 
-    Filme deletedFilm=null;
+
 
     ItemTouchHelper.SimpleCallback itemTouchHelperCallbackUser= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT) {
                 @Override
@@ -240,9 +240,16 @@ public class BlankFragmentAdmin1 extends Fragment  {
                 public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                     MyDataBase myDataBase=new MyDataBase(getContext());
                     TempDeletedUser=new ArrayList<>();
-                    final  int postin=viewHolder.getAdapterPosition();
+                    final  int postin=viewHolder.getLayoutPosition();
 
-                    TempDeletedUser.add(myDataBase.getAllUser().get(postin));
+                    String name=myDataBase.getAllUser().get(postin).getUserName();
+
+
+                    User user=myDataBase.getUserByName(myDataBase.getAllUser().get(postin).getUserName());
+
+
+
+                    TempDeletedUser.add(user);
                     myDataBase.deleteUser(myDataBase.getAllUser().get(postin).getUserName());
                     adabter2.notifyItemInserted(postin);
 
@@ -255,6 +262,7 @@ public class BlankFragmentAdmin1 extends Fragment  {
                                 .setAction("Undo", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
+
                                         myDataBase.AddUser(TempDeletedUser.get(0));
                                     }
 
@@ -322,9 +330,17 @@ public class BlankFragmentAdmin1 extends Fragment  {
                 public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                     MyDataBase myDataBase=new MyDataBase(getContext());
                     TempDeletedFilm=new ArrayList<>();
-                    final  int postin=viewHolder.getAdapterPosition();
+                    final  int postin=viewHolder.getLayoutPosition();
+                    String name=myDataBase.getAllFilms2().get(postin).getFilmName();
 
-                    TempDeletedFilm.add(myDataBase.getAllFilms2().get(postin));
+
+                    Filme filme=myDataBase.getFilmByName(myDataBase.getAllFilms2().get(postin).getFilmName());
+
+
+
+                    TempDeletedFilm.add(filme);
+
+                    TempDeletedFilm.add(filme);
                     myDataBase.deleteFilm(myDataBase.getAllFilms2().get(postin).getFilmName());
                     adabter.notifyItemInserted(postin);
 

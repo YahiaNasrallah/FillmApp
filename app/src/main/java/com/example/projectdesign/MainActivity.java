@@ -6,17 +6,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.projectdesign.R;
+import com.example.projectdesign.databinding.ActivityLoginBinding;
 import com.example.projectdesign.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationBarView;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     ActivityMainBinding binding;
     @Override
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new BlankFragment1());
+
 
 
 

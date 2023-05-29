@@ -259,7 +259,7 @@ public class MyDataBase extends SQLiteOpenHelper {
     @SuppressLint("Range")
     public ArrayList<Filme> getAllFilms2() {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<Filme> filmeList = new ArrayList<>();
+            ArrayList<Filme> filmeList = new ArrayList<>();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FILMS, null);
 
