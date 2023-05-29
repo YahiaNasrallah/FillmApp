@@ -18,8 +18,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 
 public class MainActivity extends AppCompatActivity {
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+
 
     ActivityMainBinding binding;
     @Override
@@ -28,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new BlankFragment1());
+
+
+
 
 
 

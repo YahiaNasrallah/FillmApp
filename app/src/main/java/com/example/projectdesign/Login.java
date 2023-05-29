@@ -63,6 +63,8 @@ public class Login extends AppCompatActivity {
 
 
 
+
+
                         if (myDataBase.getTemp().equals("")){
                             myDataBase.AddTemp(binding.edUsernamelogin.getText().toString());
                         }else{
@@ -73,6 +75,9 @@ public class Login extends AppCompatActivity {
 
                         Toast.makeText(Login.this, "Found", Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(Login.this,MainActivity.class);
+                        editor.putString("savedName",binding.edUsernamelogin.getText().toString());
+                        editor.putString("savedPAssword",binding.edUserpasswordloign.getText().toString());
+                        editor.commit();
                         binding.edUsernamelogin.getText().clear();
                         binding.edUserpasswordloign.getText().clear();
                         startActivity(intent);
