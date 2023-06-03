@@ -40,6 +40,12 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (myDataBase.CheckUserName(binding.edUsernameCreate.getText().toString())) {
+                    binding.edUsernameCreate.setError("User Name Was Taken");
+                    binding.edUsernameCreate.requestFocus();
+                }else {
+
+
 
                 if (binding.edUsernameCreate.getText().toString().isEmpty()||binding.edUserphoneCreate.getText().toString().isEmpty()||binding.edUserpasswordCreate.getText().toString().isEmpty()
                 ||binding.edUserRepasswordCreate.getText().toString().isEmpty()){
@@ -53,44 +59,43 @@ public class CreateAccount extends AppCompatActivity {
                     binding.edUserRepasswordCreate.requestFocus();
                 }else {
 
-                    if (binding.edUserpasswordCreate.getText().toString().equals(binding.edUserRepasswordCreate.getText().toString())){
-                        User user=new User();
+                    if (binding.edUserpasswordCreate.getText().toString().equals(binding.edUserRepasswordCreate.getText().toString())) {
 
-                        String name=binding.edUsernameCreate.getText().toString();
-                        String phone=binding.edUserphoneCreate.getText().toString();
-                        String password=binding.edUserpasswordCreate.getText().toString();
-                        Bitmap i=image2;
+                        User user = new User();
 
-                        user=new User(image2,name,password,phone);
+                        String name = binding.edUsernameCreate.getText().toString();
+                        String phone = binding.edUserphoneCreate.getText().toString();
+                        String password = binding.edUserpasswordCreate.getText().toString();
+                        Bitmap i = image2;
+
+                        user = new User(image2, name, password, phone);
 
 
-                        if (myDataBase.AddUser(user)){
+                        if (myDataBase.AddUser(user)) {
 
                             Toast.makeText(CreateAccount.this, "Done", Toast.LENGTH_SHORT).show();
                             binding.edUsernameCreate.getText().clear();
                             binding.edUserpasswordCreate.getText().clear();
+                            binding.edUserRepasswordCreate.getText().clear();
                             binding.edUserphoneCreate.getText().clear();
                             binding.imageUser.setImageBitmap(null);
 
-                        }else {
+                        } else {
                             Toast.makeText(CreateAccount.this, "NO", Toast.LENGTH_SHORT).show();
 
                         }
 
-                    }else {
+                    } else {
                         binding.edUserpasswordCreate.setError("Password Dosnt the Same");
                         binding.edUserpasswordCreate.requestFocus();
                         binding.edUserRepasswordCreate.setError("Password Dosnt the Same");
                         binding.edUserRepasswordCreate.requestFocus();
-                        Toast.makeText(CreateAccount.this, "Enter The Same Password", Toast.LENGTH_SHORT).show();
                     }
-
-
-
                 }
 
 
 
+                }
                 }
 
 
