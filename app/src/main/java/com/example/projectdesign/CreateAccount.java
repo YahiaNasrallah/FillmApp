@@ -39,32 +39,59 @@ public class CreateAccount extends AppCompatActivity {
         binding.btnCreeateaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user=new User();
-
-                String name=binding.edUsernameCreate.getText().toString();
-                String phone=binding.edUserphoneCreate.getText().toString();
-                String password=binding.edUserpasswordCreate.getText().toString();
-                Bitmap i=image2;
-
-                user=new User(image2,name,password,phone);
 
 
-                    if (myDataBase.AddUser(user)){
+                if (binding.edUsernameCreate.getText().toString().isEmpty()||binding.edUserphoneCreate.getText().toString().isEmpty()||binding.edUserpasswordCreate.getText().toString().isEmpty()
+                ||binding.edUserRepasswordCreate.getText().toString().isEmpty()){
+                    binding.edUsernameCreate.setError("Fill Data");
+                    binding.edUsernameCreate.requestFocus();
+                    binding.edUserphoneCreate.setError("Fill Data");
+                    binding.edUserphoneCreate.requestFocus();
+                    binding.edUserpasswordCreate.setError("Fill Data");
+                    binding.edUserpasswordCreate.requestFocus();
+                    binding.edUserRepasswordCreate.setError("Fill Data");
+                    binding.edUserRepasswordCreate.requestFocus();
+                }else {
 
-                        Toast.makeText(CreateAccount.this, "Done", Toast.LENGTH_SHORT).show();
-                        binding.edUsernameCreate.getText().clear();
-                        binding.edUserpasswordCreate.getText().clear();
-                        binding.edUserphoneCreate.getText().clear();
-                        binding.imageUser.setImageBitmap(null);
+                    if (binding.edUserpasswordCreate.getText().toString().equals(binding.edUserRepasswordCreate.getText().toString())){
+                        User user=new User();
+
+                        String name=binding.edUsernameCreate.getText().toString();
+                        String phone=binding.edUserphoneCreate.getText().toString();
+                        String password=binding.edUserpasswordCreate.getText().toString();
+                        Bitmap i=image2;
+
+                        user=new User(image2,name,password,phone);
+
+
+                        if (myDataBase.AddUser(user)){
+
+                            Toast.makeText(CreateAccount.this, "Done", Toast.LENGTH_SHORT).show();
+                            binding.edUsernameCreate.getText().clear();
+                            binding.edUserpasswordCreate.getText().clear();
+                            binding.edUserphoneCreate.getText().clear();
+                            binding.imageUser.setImageBitmap(null);
+
+                        }else {
+                            Toast.makeText(CreateAccount.this, "NO", Toast.LENGTH_SHORT).show();
+
+                        }
 
                     }else {
-                        Toast.makeText(CreateAccount.this, "NO", Toast.LENGTH_SHORT).show();
-
+                        binding.edUserpasswordCreate.setError("Password Dosnt the Same");
+                        binding.edUserpasswordCreate.requestFocus();
+                        binding.edUserRepasswordCreate.setError("Password Dosnt the Same");
+                        binding.edUserRepasswordCreate.requestFocus();
+                        Toast.makeText(CreateAccount.this, "Enter The Same Password", Toast.LENGTH_SHORT).show();
                     }
+
+
 
                 }
 
 
+
+                }
 
 
 
